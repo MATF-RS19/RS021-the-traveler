@@ -2,6 +2,8 @@
 #include "ui_mainmenuwindow.h"
 #include <QDesktopWidget>
 #include <QPalette>
+#include <QPainter>
+#include <QApplication>
 
 MainMenuWindow::MainMenuWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -97,7 +99,7 @@ void MainMenuWindow::setBackgroundImage()
 {
     // ui->stackedWidget->setAutoFillBackground(true);
 
-    QPixmap bkgnd("/home/joki/TheTraveler/main.png");
+    QPixmap bkgnd(":/images/images/main.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
