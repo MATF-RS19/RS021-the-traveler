@@ -24,10 +24,12 @@ private slots:
 
     void on_quit_clicked();
 
+    void on_btnBack_clicked();
+
 private:
     Ui::MainMenuWindow *ui;
     void setWindowCenter(double widthCoef, double heightCoef);
-    void setBackgroundImage();
+    void setBackgroundImage(QString imagePath);
 };
 
 #endif // MAINMENUWINDOW_H

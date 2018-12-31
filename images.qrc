@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/images">
         <file>images/main.png</file>
+        <file>images/controles_bkgnd.jpg</file>
     </qresource>
 </RCC>

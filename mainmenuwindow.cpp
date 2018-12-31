@@ -30,7 +30,7 @@ MainMenuWindow::MainMenuWindow(QWidget *parent) :
 
     ui->stackedWidget->setCurrentIndex(0);
 
-    setBackgroundImage();
+    setBackgroundImage(":/images/images/main.png");
 
     setWindowTitle("The Traveler");
 }
@@ -95,11 +95,11 @@ void MainMenuWindow::setWindowCenter(double widthCoef, double heightCoef)
      *
      */
 
-void MainMenuWindow::setBackgroundImage()
+void MainMenuWindow::setBackgroundImage(QString imagePath)
 {
     // ui->stackedWidget->setAutoFillBackground(true);
 
-    QPixmap bkgnd(":/images/images/main.png");
+    QPixmap bkgnd(imagePath);
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
@@ -115,6 +115,8 @@ void MainMenuWindow::on_play_clicked()
 void MainMenuWindow::on_controls_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
+    //setBackgroundImage(":/images/images/controles_bkgnd.png");
+
 }
 
 void MainMenuWindow::on_howToPlay_clicked()
@@ -125,4 +127,9 @@ void MainMenuWindow::on_howToPlay_clicked()
 void MainMenuWindow::on_quit_clicked()
 {
     close();
+}
+
+void MainMenuWindow::on_btnBack_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }
