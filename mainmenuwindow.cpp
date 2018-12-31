@@ -4,6 +4,7 @@
 #include <QPalette>
 #include <QPainter>
 #include <QApplication>
+#include <QMediaPlayer>
 
 MainMenuWindow::MainMenuWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -33,6 +34,25 @@ MainMenuWindow::MainMenuWindow(QWidget *parent) :
     setBackgroundImage(":/images/images/main.png");
 
     setWindowTitle("The Traveler");
+
+    /*
+     *
+     * muzika TODO: napraviti poseban metod za to
+     *
+     */
+
+    QMediaPlayer *music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:sounds/bckg_music.mp3"));
+    music->play();
+
+    /* TODO
+     *
+     * QPixmap pixmap("image_path");
+     * QIcon ButtonIcon(pixmap);
+     * sound->setIcon(ButtonIcon);
+     * sound->setIconSize(pixmap.rect().size());
+     *
+     */
 }
 
 MainMenuWindow::~MainMenuWindow()
@@ -132,4 +152,9 @@ void MainMenuWindow::on_quit_clicked()
 void MainMenuWindow::on_btnBack_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
+}
+
+void MainMenuWindow::on_pushButton_clicked()
+{
+    // TODO stop the sound
 }

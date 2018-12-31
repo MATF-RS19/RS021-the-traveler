@@ -26,6 +26,8 @@ private slots:
 
     void on_btnBack_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainMenuWindow *ui;
     void setWindowCenter(double widthCoef, double heightCoef);

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/buttons">
+        <file>buttons/speaker_off.png</file>
+        <file>buttons/speaker_on.png</file>
+    </qresource>
+</RCC>

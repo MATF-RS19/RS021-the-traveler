@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QWidget" name="verticalLayoutWidget">
@@ -40,13 +40,6 @@
        <property name="spacing">
         <number>20</number>
        </property>
-       <item>
-        <widget class="QLabel" name="labelOptions">
-         <property name="text">
-          <string>Options</string>
-         </property>
-        </widget>
-       </item>
        <item>
         <widget class="QPushButton" name="play">
          <property name="styleSheet">
@@ -85,6 +78,19 @@
         </widget>
        </item>
       </layout>
+     </widget>
+     <widget class="QPushButton" name="sound">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>210</y>
+        <width>89</width>
+        <height>25</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="page_2">
