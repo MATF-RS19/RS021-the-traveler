@@ -27,10 +27,16 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        mainmenuwindow.cpp
+        mainmenuwindow.cpp \
+    city.cpp \
+    paris.cpp \
+    game.cpp
 
 HEADERS += \
-        mainmenuwindow.h
+        mainmenuwindow.h \
+    city.h \
+    paris.h \
+    game.h
 
 FORMS += \
         mainmenuwindow.ui

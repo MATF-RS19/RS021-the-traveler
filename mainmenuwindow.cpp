@@ -5,6 +5,13 @@
 #include <QPainter>
 #include <QApplication>
 #include <QMediaPlayer>
+#include <QList>
+
+#include "game.h"
+//#include "city.h"
+//#include "paris.h"
+
+//QList<City*> listOfCities;
 
 MainMenuWindow::MainMenuWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -41,9 +48,10 @@ MainMenuWindow::MainMenuWindow(QWidget *parent) :
      *
      */
 
-    QMediaPlayer *music = new QMediaPlayer();
-    music->setMedia(QUrl("qrc:sounds/bckg_music.mp3"));
+    music = new QMediaPlayer();
+    music->setMedia(QUrl("qrc:/sounds/bckg_music.mp3"));
     music->play();
+
 
     /* TODO
      *
@@ -130,13 +138,17 @@ void MainMenuWindow::setBackgroundImage(QString imagePath)
 void MainMenuWindow::on_play_clicked()
 {
     ui->stackedWidget->setCurrentIndex(3);  // TODO dodati 1. nivo (i ostale)
+
+    Game *game = new Game();
+    game->start();
+    music->stop();
+    close();
+
 }
 
 void MainMenuWindow::on_controls_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
-    //setBackgroundImage(":/images/images/controles_bkgnd.png");
-
 }
 
 void MainMenuWindow::on_howToPlay_clicked()

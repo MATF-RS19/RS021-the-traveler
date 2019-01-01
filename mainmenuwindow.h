@@ -2,6 +2,9 @@
 #define MAINMENUWINDOW_H
 
 #include <QMainWindow>
+#include <QMediaPlayer>
+//#include <QList>
+//#include "city.h"
 
 namespace Ui {
 class MainMenuWindow;
@@ -30,6 +33,7 @@ private slots:
 
 private:
     Ui::MainMenuWindow *ui;
+    QMediaPlayer *music;
     void setWindowCenter(double widthCoef, double heightCoef);
     void setBackgroundImage(QString imagePath);
 };
