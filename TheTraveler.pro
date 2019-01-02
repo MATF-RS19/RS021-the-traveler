@@ -33,7 +33,8 @@ SOURCES += \
     game.cpp \
     tokyo.cpp \
     building.cpp \
-    baseshape.cpp
+    baseshape.cpp \
+    player.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -42,7 +43,8 @@ HEADERS += \
     game.h \
     tokyo.h \
     building.h \
-    baseshape.h
+    baseshape.h \
+    player.h
 
 FORMS += \
         mainmenuwindow.ui

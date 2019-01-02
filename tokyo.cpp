@@ -18,5 +18,5 @@ void Tokyo::buildCity(){
      * (koje redom uzima iz liste)
      */
 
-    foreach(Building *b, listOfBuildings) m_scene->addItem(b);
+    foreach(Building *b, listOfBuildings) _scene->addItem(b);
 }
