@@ -6,7 +6,7 @@
 class Building : public QGraphicsItem
 {
 public:
-    Building(int x, int y);
+    Building(int x, int y, QString img);
 
     QRectF boundingRect() const override;
 
@@ -19,6 +19,8 @@ public:
 
 private:
     int m_buildingSize;
+    QString _img;
+
 };
 
 #endif // BUILDING_H

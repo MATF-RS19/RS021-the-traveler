@@ -34,7 +34,9 @@ SOURCES += \
     tokyo.cpp \
     building.cpp \
     baseshape.cpp \
-    player.cpp
+    player.cpp \
+    bullet.cpp \
+    evil.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -44,7 +46,9 @@ HEADERS += \
     tokyo.h \
     building.h \
     baseshape.h \
-    player.h
+    player.h \
+    bullet.h \
+    evil.h
 
 FORMS += \
         mainmenuwindow.ui

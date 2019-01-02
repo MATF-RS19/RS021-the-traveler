@@ -10,8 +10,8 @@
      *
      */
 
-Building::Building(int x, int y)
-    : m_buildingSize(80)
+Building::Building(int x, int y, QString img)
+    : m_buildingSize(80), _img(img)
 {
      setPos(x, y);
 }
@@ -27,7 +27,7 @@ void Building::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidge
     painter->drawRect(0,0,m_buildingSize,m_buildingSize);
 
     // slika gradjevine (trave...)
-    QPixmap pixmap(":/images/images/tokyo_grass.png");
+    QPixmap pixmap(_img);
 
     painter->drawPixmap(-10, -10, 100, 100, pixmap);
 }

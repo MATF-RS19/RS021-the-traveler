@@ -5,6 +5,7 @@
 #include <QGraphicsItem>
 #include <QGraphicsRectItem>
 #include "city.h"
+#include "evil.h"
 
 class Tokyo : public City {
 public:
@@ -13,7 +14,7 @@ public:
     {}
 
 private:
-
+   // Evil * evil;
     void buildCity();
     //bool finished;
 };
