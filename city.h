@@ -1,6 +1,7 @@
 #ifndef CITY_H
 #define CITY_H
 
+#include "building.h"
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QString>
@@ -17,6 +18,7 @@ public:
 
 protected:
     QGraphicsScene *m_scene;
+    QList<Building*> listOfBuildings; // lista koja sadrzi sve gradjevine (treba ih cuvati zbog kasnije obrade kolizije sa njima)
     QString m_name;
     bool finished;
 };

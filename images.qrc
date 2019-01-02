@@ -2,5 +2,10 @@
     <qresource prefix="/images">
         <file>images/main.png</file>
         <file>images/paris.jpg</file>
+        <file>images/chinese-pattern-background.jpg</file>
+        <file>images/tokyo_building_type_2.png</file>
+        <file>images/tokyo_building_type_3.gif</file>
+        <file>images/tokyo_building_type_1.png</file>
+        <file>images/tokyo_grass.png</file>
     </qresource>
 </RCC>

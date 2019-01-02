@@ -30,13 +30,19 @@ SOURCES += \
         mainmenuwindow.cpp \
     city.cpp \
     paris.cpp \
-    game.cpp
+    game.cpp \
+    tokyo.cpp \
+    building.cpp \
+    baseshape.cpp
 
 HEADERS += \
         mainmenuwindow.h \
     city.h \
     paris.h \
-    game.h
+    game.h \
+    tokyo.h \
+    building.h \
+    baseshape.h
 
 FORMS += \
         mainmenuwindow.ui

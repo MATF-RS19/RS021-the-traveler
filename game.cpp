@@ -1,12 +1,14 @@
 #include "game.h"
 #include "paris.h"
+#include "tokyo.h"
 
 #include <iterator>
 
 Game::Game(){
 
-    Paris *paris = new Paris();
-    listOfCities.push_back(paris);
+ //   Paris *paris = new Paris();
+    Tokyo *tokyo = new Tokyo();
+    listOfCities.push_back(tokyo);
 }
 
 void Game::start(){
@@ -34,5 +36,5 @@ void Game::start(){
         (*it)->show();
     }
 
-    //listOfCities[0]->show();
+  //  listOfCities[0]->show();
 }
