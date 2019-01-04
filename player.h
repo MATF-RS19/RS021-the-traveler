@@ -23,6 +23,7 @@ private:
     bool collisionFlag = false;
     QGraphicsPixmapItem* _fakePlayer;
     QList<QGraphicsItem*> colliding_items2;
+public:
     int lifes = 3;
 };
 

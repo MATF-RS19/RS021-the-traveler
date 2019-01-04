@@ -4,7 +4,12 @@
 #include <QDebug>
 #include "evil.h"
 #include "globalvars.h"
+#include "city.h"
+#include "game.h"
+#include <QGraphicsView>
+#include <QGraphicsItem>
 
+extern int a;
     /*
      * DIMENZIJE PLAYERA:
      * 110 x 60
@@ -120,6 +125,11 @@ void Player::checkLifes() {
     }
 
     if (lifes <= 0) {
+        a = 1 +a;
+        //qDebug() << a;
+       // Game::listOfCities[1]->show();
 
     }
+
 }
+

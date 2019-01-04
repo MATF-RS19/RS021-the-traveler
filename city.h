@@ -26,6 +26,7 @@ protected:
    // QList<Evil*> listOfEvils;
     QString _name;
     bool _finished;     // bolje ovde da bude nego u svakom gradu pojedinacno
+public:
     Player *_player;
 };
 

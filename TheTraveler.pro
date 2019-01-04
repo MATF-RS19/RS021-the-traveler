@@ -37,7 +37,8 @@ SOURCES += \
     player.cpp \
     bullet.cpp \
     evil.cpp \
-    globalvars.cpp
+    globalvars.cpp \
+    settingsdialog.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -50,10 +51,12 @@ HEADERS += \
     player.h \
     bullet.h \
     evil.h \
-    globalvars.h
+    globalvars.h \
+    settingsdialog.h
 
 FORMS += \
-        mainmenuwindow.ui
+        mainmenuwindow.ui \
+    settingsdialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

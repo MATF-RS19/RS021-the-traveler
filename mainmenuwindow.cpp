@@ -6,6 +6,9 @@
 #include <QApplication>
 #include <QMediaPlayer>
 #include <QList>
+#include <QDialog>
+
+
 
 #include "game.h"
 //#include "city.h"
@@ -169,4 +172,11 @@ void MainMenuWindow::on_btnBack_clicked()
 void MainMenuWindow::on_pushButton_clicked()
 {
     // TODO stop the sound
+}
+
+void MainMenuWindow::on_actionSettings_triggered()
+{
+    SettingsDialog dialogWindow;
+    dialogWindow.setModal(true);
+    dialogWindow.exec();
 }

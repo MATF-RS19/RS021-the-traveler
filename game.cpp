@@ -1,14 +1,21 @@
 #include "game.h"
 #include "paris.h"
 #include "tokyo.h"
-
+#include <QDebug>
 #include <iterator>
+#include "player.h"
+
+
+
+extern int a;
+
 
 Game::Game(){
 
- //   Paris *paris = new Paris();
+    Paris *paris = new Paris();
     Tokyo *tokyo = new Tokyo();
     listOfCities.push_back(tokyo);
+    listOfCities.push_back(paris);
 }
 
 void Game::start(){
@@ -17,6 +24,8 @@ void Game::start(){
         Ovim metodom se prave i prikazuju gradovi iz liste.
     */
 
+  qDebug() << a;
+    qDebug() << listOfCities[0]->_player->lifes;
 
     QList<City*>::iterator it;
     for(it = listOfCities.begin(); it != listOfCities.end(); it++){
@@ -32,9 +41,21 @@ void Game::start(){
         listOfCities[i]->show();
     */
 
+    /*
     for(it = listOfCities.begin(); it != listOfCities.end(); it++){
         (*it)->show();
     }
-
-  //  listOfCities[0]->show();
+*/
+    listOfCities[0]->show();
+    qDebug() << listOfCities[0]->_player->lifes;
+qDebug() << a;
+    if (listOfCities[0]->_player->lifes <= 0) {
+         // listOfCities[0]->invalidateScene();
+         // listOfCities[1]->show();
+         qDebug() << "sdssa";
+         listOfCities[1]->show();
+    }
 }
+
+
+

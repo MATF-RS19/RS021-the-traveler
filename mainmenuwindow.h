@@ -5,6 +5,8 @@
 #include <QMediaPlayer>
 //#include <QList>
 //#include "city.h"
+#include "settingsdialog.h"
+#include "ui_settingsdialog.h"
 
 namespace Ui {
 class MainMenuWindow;
@@ -30,6 +32,8 @@ private slots:
     void on_btnBack_clicked();
 
     void on_pushButton_clicked();
+
+    void on_actionSettings_triggered();
 
 private:
     Ui::MainMenuWindow *ui;
