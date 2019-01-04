@@ -1,5 +1,7 @@
 #include "mainmenuwindow.h"
 #include <QApplication>
+#include "evil.h"
+
 
 int main(int argc, char *argv[])
 {

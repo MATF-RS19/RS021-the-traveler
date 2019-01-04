@@ -36,7 +36,8 @@ SOURCES += \
     baseshape.cpp \
     player.cpp \
     bullet.cpp \
-    evil.cpp
+    evil.cpp \
+    globalvars.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -48,7 +49,8 @@ HEADERS += \
     baseshape.h \
     player.h \
     bullet.h \
-    evil.h
+    evil.h \
+    globalvars.h
 
 FORMS += \
         mainmenuwindow.ui

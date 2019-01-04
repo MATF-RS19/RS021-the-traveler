@@ -10,5 +10,16 @@
         <file>images/right2.png</file>
         <file>images/left2.png</file>
         <file>images/fake-player.png</file>
+        <file>images/Building01.png</file>
+        <file>images/Building02.png</file>
+        <file>images/Building03.png</file>
+        <file>images/Building04.png</file>
+        <file>images/Building05.png</file>
+        <file>images/Building06.png</file>
+        <file>images/Plant02-1.png</file>
+        <file>images/Plant02-2.png</file>
+        <file>images/Plant02-3.png</file>
+        <file>images/Plant01-2.png</file>
+        <file>images/fire.png</file>
     </qresource>
 </RCC>

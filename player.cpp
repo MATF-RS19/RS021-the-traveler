@@ -2,6 +2,8 @@
 #include "building.h"
 #include <QGraphicsScene>
 #include <QDebug>
+#include "evil.h"
+#include "globalvars.h"
 
     /*
      * DIMENZIJE PLAYERA:
@@ -22,6 +24,7 @@ Player::Player(int x, int y){
     _fakePlayer = new QGraphicsPixmapItem;
     _fakePlayer->setPos(_xPos,_yPos);
     _fakePlayer->setPixmap(QPixmap(":/images/images/fake-player.png"));
+    _fakePlayer->setScale(0.6);
 
 }
 
@@ -32,8 +35,9 @@ Player::~Player(){
 void Player::keyPressEvent(QKeyEvent *event){
 
     if(event->key() == Qt::Key_Left){
-        _fakePlayer->setPos(x() - _step, y()+50);
-        if(collisionWithBuildings() == false){
+        _fakePlayer->setPos(x() - _step, y());
+        checkLifes();
+        if(collisionWithBuildings() == false && collisionWithEvil() == false){
             if (pos().x() > 0) {
                 setPos(x() - _step, y());
                 this->setPixmap(_left);
@@ -41,8 +45,9 @@ void Player::keyPressEvent(QKeyEvent *event){
         }
     }
     else if(event->key() == Qt::Key_Right){
-        _fakePlayer->setPos(x() + _step+5, y()+50);
-        if(collisionWithBuildings() == false){
+        _fakePlayer->setPos(x() + _step, y());
+        checkLifes();
+        if(collisionWithBuildings() == false && collisionWithEvil() == false){
             if (pos().x() + 60 < 900) {
                 this->setPixmap(_right);
                 setPos(x() + _step, y());
@@ -51,7 +56,8 @@ void Player::keyPressEvent(QKeyEvent *event){
     }
     else if(event->key() == Qt::Key_Up){
         _fakePlayer->setPos(x(), y() - _step);
-        if(collisionWithBuildings() == false){
+        checkLifes();
+        if(collisionWithBuildings() == false && collisionWithEvil() == false){
             if (pos().y() > 0) {
                 this->setPixmap(_left);
                 setPos(x(), y() - _step);
@@ -59,8 +65,9 @@ void Player::keyPressEvent(QKeyEvent *event){
         }
     }
     else if(event->key() == Qt::Key_Down){
-        _fakePlayer->setPos(x(), y() + _step+70);
-        if(collisionWithBuildings() == false){
+        _fakePlayer->setPos(x(), y() + _step);
+        checkLifes();
+        if(collisionWithBuildings() == false && collisionWithEvil() == false){
             if (pos().y() + 110 < 599) {
             this->setPixmap(_right);
             setPos(x(), y() + _step);
@@ -87,3 +94,32 @@ bool Player::collisionWithBuildings(){
     return false;
 }
 
+bool Player::collisionWithEvil(){
+    colliding_items2 = _fakePlayer->collidingItems();
+    //qDebug() << colliding_items;
+    int n = colliding_items2.size();
+    for(int i = 0; i < n; ++i){
+        if((typeid(*(colliding_items2[i])) == typeid(Evil))){
+            //colliding_items.clear();
+            return true;
+        }
+    }
+    return false;
+}
+
+void Player::checkLifes() {
+    if (collisionWithEvil() == true and lifes > 0) {
+        this->setOpacity(this->opacity() - 0.2);
+        lifes = lifes - 1;
+
+// ne dirajte ovo! :D
+        //   evil_flag = 1;
+       //     scene()->removeItem(colliding_items2[0]);
+        //    delete colliding_items2[0];
+
+    }
+
+    if (lifes <= 0) {
+
+    }
+}

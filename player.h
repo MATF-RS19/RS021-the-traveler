@@ -11,7 +11,8 @@ public:
     ~Player();
     void keyPressEvent(QKeyEvent *event);
     bool collisionWithBuildings();
-
+    bool collisionWithEvil();
+    void checkLifes();
     QGraphicsPixmapItem *getFakePlayer();
 
 private:
@@ -21,6 +22,8 @@ private:
     QPixmap _right = QPixmap(":/images/images/right2.png");
     bool collisionFlag = false;
     QGraphicsPixmapItem* _fakePlayer;
+    QList<QGraphicsItem*> colliding_items2;
+    int lifes = 3;
 };
 
 #endif // PLAYER_H
