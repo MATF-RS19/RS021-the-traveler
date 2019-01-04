@@ -10,7 +10,7 @@
 class Tokyo : public City {
 public:
     Tokyo()
-        :City("Tokyo", 250, 250)
+        :City("Tokyo", 250, 230)
     {}
 
 private:

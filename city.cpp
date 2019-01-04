@@ -11,6 +11,7 @@ City::City(QString name, int playerPosX, int playerPosY){
     _finished = false;
     _player = new Player(playerPosX, playerPosY);
     _scene->addItem(_player);
+    _scene->addItem(_player->getFakePlayer());
 }
 
     /*

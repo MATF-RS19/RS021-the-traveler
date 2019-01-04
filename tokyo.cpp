@@ -18,7 +18,7 @@ void Tokyo::buildCity(){
     listOfBuildings.append(new Building(620,0, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(750,0, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(820,0, ":/images/images/tokyo_grass.png"));
-
+/*
     listOfBuildings.append(new Building(0,170, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(70,170, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(140,170, ":/images/images/tokyo_building_type_2.png"));
@@ -30,11 +30,11 @@ void Tokyo::buildCity(){
     listOfBuildings.append(new Building(620,170, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(750,170, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(820,170, ":/images/images/tokyo_grass.png"));
-
+*/
     listOfBuildings.append(new Building(0,340, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(70,340, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(140,340, ":/images/images/tokyo_building_type_2.png"));
-    listOfBuildings.append(new Building(210,340, ":/images/images/tokyo_building_type_2.png"));
+   // listOfBuildings.append(new Building(210,340, ":/images/images/tokyo_building_type_2.png"));
     listOfBuildings.append(new Building(340,340, ":/images/images/tokyo_building_type_2.png"));
     listOfBuildings.append(new Building(410,340, ":/images/images/tokyo_building_type_2.png"));
     listOfBuildings.append(new Building(480,340, ":/images/images/tokyo_building_type_2.png"));

@@ -9,5 +9,6 @@
         <file>images/tokyo_grass.png</file>
         <file>images/right2.png</file>
         <file>images/left2.png</file>
+        <file>images/fake-player.png</file>
     </qresource>
 </RCC>
