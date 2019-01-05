@@ -3,9 +3,10 @@
 
 #include <QGraphicsPathItem>
 #include <QKeyEvent>
+#include <QObject>
 
 class Player : public QGraphicsPixmapItem {
-
+    //Q_OBJECT
 public:
     Player(int x, int y);
     ~Player();
@@ -14,6 +15,12 @@ public:
     bool collisionWithEvil();
     void checkLifes();
     QGraphicsPixmapItem *getFakePlayer();
+
+    int getX();
+    int getY();
+
+//public slots:
+    void keyReleaseEvent(QKeyEvent *event);
 
 private:
     int _step = 3;

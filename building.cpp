@@ -32,11 +32,15 @@ void Building::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidge
     painter->drawPixmap(_xPos,_yPos,_width,_height, pixmap);
 }
 
-void Building::mousePressEvent(QGraphicsSceneMouseEvent *event)
-{
+void Building::mousePressEvent(QGraphicsSceneMouseEvent *event){
+
 }
 
 void Building::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
+}
+
+void Building::setName(QString name){
+    _name = name;
 }
 

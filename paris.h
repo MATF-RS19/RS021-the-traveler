@@ -4,20 +4,26 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QGraphicsRectItem>
-//#include <QPainter>
+#include <QObject>
 #include "city.h"
 
 class Paris : public City {
+
+
 public:
     Paris()
         :City("Paris", 750, 250)
     {}
 
+private slots:
+    void findKey();
 
 private:
 
     void buildCity();
     void makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yPos);
+    Building *_key;
+    bool _foundKey = false;
 
 };
 

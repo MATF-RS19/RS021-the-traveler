@@ -75,16 +75,37 @@ void Player::keyPressEvent(QKeyEvent *event){
         checkLifes();
         if(collisionWithBuildings() == false && collisionWithEvil() == false){
             if (pos().y() + 110 < 599) {
-            this->setPixmap(_right);
-            setPos(x(), y() + _step);
+                this->setPixmap(_right);
+                setPos(x(), y() + _step);
             }
         }
+    }
+}
+
+void Player::keyReleaseEvent(QKeyEvent *event){
+    if((event->key() == Qt::Key_Left) ||
+       (event->key() == Qt::Key_Right) ||
+       (event->key() == Qt::Key_Up) ||
+       (event->key() == Qt::Key_Down)){
+
+            _xPos = x();
+            _yPos = y();
+            qDebug() << "x: " << _xPos;
+            qDebug() << "y: " << _yPos;
     }
 }
 
 
 QGraphicsPixmapItem *Player::getFakePlayer(){
     return _fakePlayer;
+}
+
+int Player::getX(){
+    return _xPos;
+}
+
+int Player::getY(){
+    return _yPos;
 }
 
 bool Player::collisionWithBuildings(){
