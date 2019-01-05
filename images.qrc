@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/images">
         <file>images/main.png</file>
-        <file>images/paris.jpg</file>
         <file>images/chinese-pattern-background.jpg</file>
         <file>images/tokyo_building_type_2.png</file>
         <file>images/tokyo_building_type_3.gif</file>
@@ -24,5 +23,14 @@
         <file>images/free-flat-nature-vector-background.jpg</file>
         <file>images/free-flat-landscape-vector-background.jpg</file>
         <file>images/dialog_bckg.jpg</file>
+        <file>images/paris-triumphal-arch.svg</file>
+        <file>images/paris_street_5.png</file>
+        <file>images/paris_street_4.png</file>
+        <file>images/paris_street_3.png</file>
+        <file>images/paris_street_2.png</file>
+        <file>images/paris_street_1.png</file>
+        <file>images/paris_notre_dame.jpg</file>
+        <file>images/paris_eiffel_tower.png</file>
+        <file>images/paris_background6.jpg</file>
     </qresource>
 </RCC>

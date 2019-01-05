@@ -4,6 +4,7 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsItem>
 #include <QGraphicsRectItem>
+//#include <QPainter>
 #include "city.h"
 
 class Paris : public City {
@@ -12,11 +13,12 @@ public:
         :City("Paris", 100, 100)
     {}
 
+
 private:
 
     void buildCity();
-    //bool finished;    // indikator koji govori da li je igrac uradio sve sto treba u trenutnom gradu kako bi presao u novi
-                        // trenutno zakomentarisano dok se ne naprave svi gradovi
+    void makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yPos);
+
 };
 
 #endif // PARIS_H
