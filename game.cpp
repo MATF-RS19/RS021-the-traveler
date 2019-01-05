@@ -46,6 +46,7 @@ void Game::start(){
         (*it)->show();
     }
 */
+    /*
     listOfCities[0]->show();
     qDebug() << listOfCities[0]->_player->lifes;
 qDebug() << a;
@@ -55,6 +56,9 @@ qDebug() << a;
          qDebug() << "sdssa";
          listOfCities[1]->show();
     }
+    */
+
+    listOfCities[1]->show();
 }
 
 

@@ -32,5 +32,14 @@
         <file>images/paris_notre_dame.jpg</file>
         <file>images/paris_eiffel_tower.png</file>
         <file>images/paris_background6.jpg</file>
+        <file>images/paris_notre_dame2.jpg</file>
+        <file>images/paris_key.png</file>
+        <file>images/paris_notre_dame3.png</file>
+        <file>images/paris_tree3.png</file>
+        <file>images/paris_tree2.png</file>
+        <file>images/paris_tree1.png</file>
+        <file>images/paris_park.png</file>
+        <file>images/paris_lantern.png</file>
+        <file>images/paris_flowers.png</file>
     </qresource>
 </RCC>

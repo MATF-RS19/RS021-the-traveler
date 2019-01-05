@@ -10,26 +10,26 @@
      *
      */
 
-Building::Building(int x, int y, QString img)
-    : m_buildingSize(80), _img(img)
+Building::Building(int xPos, int yPos, int width, int height, QString img)
+    : _xPos(xPos), _yPos(yPos), _width(width), _height(height), _img(img)
 {
-     setPos(x, y);
+     setPos(xPos, yPos);
 }
 
 QRectF Building::boundingRect() const
 {
-    return QRectF(0,0,80,80);
+    return QRectF(_xPos,_yPos,_width,_height);
 }
 
 void Building::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     // crtanje pravougaonika
-    painter->drawRect(0,0,m_buildingSize,m_buildingSize);
+    painter->drawRect(_xPos,_yPos,_width,_height);
 
     // slika gradjevine (trave...)
     QPixmap pixmap(_img);
 
-    painter->drawPixmap(0, 0, 80, 80, pixmap);
+    painter->drawPixmap(_xPos,_yPos,_width,_height, pixmap);
 }
 
 void Building::mousePressEvent(QGraphicsSceneMouseEvent *event)

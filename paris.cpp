@@ -4,6 +4,9 @@
 
 void Paris::buildCity(){
 
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     setCityDimensions(0, 0, 900, 599);
     setBackgraundImage(":/images/images/paris_background6.jpg");
 
@@ -15,11 +18,19 @@ void Paris::buildCity(){
     makeStreet(":/images/images/paris_street_1.png", 100, 221, 250, 0);
 
     /* Postavljaju se zgrade */
-    Building *eiffel = new Building(600,10, ":/images/images/paris_eiffel_tower.png");
-    //eiffel->boundingRect();
-    QRectF newRect = QRectF(eiffel->x(), eiffel->y(), 400, 600);
-    eiffel->update(newRect);
+    Building *eiffel = new Building(5,150, 300,300,":/images/images/paris_eiffel_tower.png");
+    Building *notreDame = new Building(350,8, 150,200,":/images/images/paris_notre_dame2.jpg");
+    Building *triumphalArch = new Building(10,8, 150,150,":/images/images/paris-triumphal-arch.svg");
+    Building *key = new Building(100,80, 10,20,":/images/images/paris_key.png");
+    Building *tree3 = new Building(320,55, 100,120,":/images/images/paris_tree3.png");
+    Building *park = new Building(300,220, 200,120,":/images/images/paris_park.png");
+
     listOfBuildings.append(eiffel);
+    listOfBuildings.append(triumphalArch);
+    listOfBuildings.append(key);
+    listOfBuildings.append(notreDame);
+    listOfBuildings.append(tree3);
+    listOfBuildings.append(park);
 
     foreach(Building *b, listOfBuildings) _scene->addItem(b);
 

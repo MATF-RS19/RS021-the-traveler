@@ -6,7 +6,7 @@
 class Building : public QGraphicsItem
 {
 public:
-    Building(int x, int y, QString img);
+    Building(int xPos, int yPos, int width, int height, QString img);
 
     QRectF boundingRect() const override;
 
@@ -18,9 +18,9 @@ public:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
 
 private:
-    int m_buildingSize;
     QString _img;
-
+    int _width, _height;
+    int _xPos, _yPos;
 };
 
 #endif // BUILDING_H
