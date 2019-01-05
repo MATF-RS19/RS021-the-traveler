@@ -2,5 +2,9 @@
     <qresource prefix="/buttons">
         <file>buttons/speaker_on.png</file>
         <file>buttons/speaker_off.png</file>
+        <file>buttons/back.png</file>
+        <file>buttons/next.png</file>
+        <file>buttons/play-button.png</file>
+        <file>buttons/gamepad.png</file>
     </qresource>
 </RCC>

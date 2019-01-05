@@ -34,10 +34,17 @@ private slots:
     void on_pushButton_clicked();
 
     void on_actionSettings_triggered();
+/*
+public:
+    QMediaPlayer *music;
+*/
+
+    void on_actionQuit_triggered();
+
+    void on_play_toggled(bool checked);
 
 private:
     Ui::MainMenuWindow *ui;
-    QMediaPlayer *music;
     void setWindowCenter(double widthCoef, double heightCoef);
     void setBackgroundImage(QString imagePath);
 };

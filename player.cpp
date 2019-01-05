@@ -9,6 +9,7 @@
 #include <QGraphicsView>
 #include <QGraphicsItem>
 
+
 extern int a;
     /*
      * DIMENZIJE PLAYERA:

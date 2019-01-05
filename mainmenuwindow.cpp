@@ -16,6 +16,8 @@
 
 //QList<City*> listOfCities;
 
+extern QMediaPlayer *music;
+
 MainMenuWindow::MainMenuWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainMenuWindow)
@@ -44,6 +46,16 @@ MainMenuWindow::MainMenuWindow(QWidget *parent) :
     setBackgroundImage(":/images/images/main.png");
 
     setWindowTitle("The Traveler");
+
+    ui->play->setStyleSheet("border-image:url(:/buttons/buttons/play-button.png);");
+    ui->play->setFixedSize(80,80);
+    ui->play->setText("");
+    // TODO alignment podesiti u kodu?!
+
+    ui->controls->setStyleSheet("border-image:url(:/buttons/buttons/gamepad.png);");
+    ui->controls->setFixedSize(80,80);
+    ui->controls->setText("");
+    // TODO alignment podesiti u kodu?!
 
     /*
      *
@@ -154,29 +166,34 @@ void MainMenuWindow::on_controls_clicked()
     ui->stackedWidget->setCurrentIndex(1);
 }
 
-void MainMenuWindow::on_howToPlay_clicked()
-{
-    ui->stackedWidget->setCurrentIndex(2);
-}
-
-void MainMenuWindow::on_quit_clicked()
-{
-    close();
-}
 
 void MainMenuWindow::on_btnBack_clicked()
 {
     ui->stackedWidget->setCurrentIndex(0);
 }
 
-void MainMenuWindow::on_pushButton_clicked()
-{
-    // TODO stop the sound
-}
 
 void MainMenuWindow::on_actionSettings_triggered()
 {
+    //music->stop();
     SettingsDialog dialogWindow;
     dialogWindow.setModal(true);
     dialogWindow.exec();
+}
+
+void MainMenuWindow::on_actionQuit_triggered()
+{
+    close();
+}
+
+// TODO nadji dogadjaj on hover ili tako nesto!!!
+
+// nije to
+
+void MainMenuWindow::on_play_toggled(bool checked)
+{/*
+    ui->play->setStyleSheet("border-image:url(:/buttons/buttons/next.png);");
+    ui->play->setFixedSize(80,80);
+    ui->play->setText("");
+    */
 }
