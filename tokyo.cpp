@@ -1,6 +1,8 @@
 #include "tokyo.h"
 #include "globalvars.h"
 #include <QDebug>
+#include "bullet.h"
+#include "player.h"
 
 void Tokyo::buildCity(){
 
@@ -62,7 +64,20 @@ void Tokyo::buildCity(){
      * (koje redom uzima iz liste)
      */
 
+    //*******************************************************************************
+    // TODO
+    // PROBLEM:
+    // svi objekti (buildings) su u listi listOfBuildings ali se NE PRIKAZUJU na sceni!
+
     foreach(Building *b, listOfBuildings) _scene->addItem(b);
+
+    for (int i=0; i < listOfBuildings.size(); i++)
+    {
+        qDebug() << i;
+    }
+    // _scene->addItem(listOfBuildings[12]);
+
+    //********************************************************************************
 
     listOfEvils.append(new Evil(500, 250));
     _scene->addItem(listOfEvils[0]);
@@ -75,5 +90,11 @@ void Tokyo::buildCity(){
     evil = new Evil(400,100);
     _scene->addItem(evil);
 */
+
+    Player *pl = new Player(250, 230);
+
+
+    Bullet *bullet = new Bullet(pl->getX(), pl->getY());
+    _scene->addItem(bullet);
 
 }

@@ -8,7 +8,7 @@
 #include "game.h"
 #include <QGraphicsView>
 #include <QGraphicsItem>
-
+#include "bullet.h"
 
 extern int a;
     /*
@@ -31,6 +31,8 @@ Player::Player(int x, int y){
     _fakePlayer->setPos(_xPos,_yPos);
     _fakePlayer->setPixmap(QPixmap(":/images/images/fake-player.png"));
     _fakePlayer->setScale(0.6);
+
+    //Bullet *bul = new Bullet();
 
 }
 

@@ -58,7 +58,7 @@ qDebug() << a;
     }
     */
 
-    listOfCities[1]->show();
+    listOfCities[0]->show();
 }
 
 
