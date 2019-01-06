@@ -25,13 +25,7 @@ private slots:
 
     void on_controls_clicked();
 
-    void on_howToPlay_clicked();
-
-    void on_quit_clicked();
-
     void on_btnBack_clicked();
-
-    void on_pushButton_clicked();
 
     void on_actionSettings_triggered();
 /*
