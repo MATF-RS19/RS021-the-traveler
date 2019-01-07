@@ -197,3 +197,18 @@ void MainMenuWindow::on_play_toggled(bool checked)
     ui->play->setText("");
     */
 }
+
+/*
+ * // TODO TODO TODO TODO TODO
+ *
+#include <QCloseEvent>
+#include <QMessageBox>
+void MainWindow::closeEvent(QCloseEvent *event)  // show prompt when user wants to close app
+{
+    event->ignore();
+    if (QMessageBox::Yes == QMessageBox::question(this, "Close Confirmation", "Exit?", QMessageBox::Yes | QMessageBox::No))
+    {
+        event->accept();
+    }
+
+}*/

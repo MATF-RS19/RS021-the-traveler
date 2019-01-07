@@ -62,7 +62,7 @@ void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJso
     setBackgraundImage(img);
 
     foreach(const QJsonValue &building, buildings) {
-        _scene->addItem(new Building(building["x"].toInt(), building["y"].toInt(),building["w"].toInt(),building["h"].toInt(), building["src"].toString()));
+        _scene->addItem(new Building(building["x"].toInt(), building["y"].toInt(),building["w"].toInt(),building["h"].toInt(), building["src"].toString(), building["type"].toInt()));
     }
 }
 

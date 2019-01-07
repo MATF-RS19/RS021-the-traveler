@@ -4,12 +4,15 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QLabel>
+#include <QDebug>
+#include <QMessageBox>
+#include <QApplication>
 
 FinalTest *testParis;
 
 
-Building::Building(int xPos, int yPos, int width, int height, QString img)
-    : _xPos(xPos), _yPos(yPos), _width(width), _height(height), _img(img)
+Building::Building(int xPos, int yPos, int width, int height, QString img, int type)
+    : _xPos(xPos), _yPos(yPos), _width(width), _height(height), _img(img), _bType(type)
 {
      setPos(xPos, yPos);
 }
@@ -58,3 +61,61 @@ void Building::setName(QString name){
 }
 
 
+void Building::advance(int step) {
+
+    if (_move_for < 500) {
+        if (_bType == 1) {
+    _move_for += 1;
+    setPos(_xPos, _yPos + _move_for);
+}
+    }
+else {
+        _move_for = 0;
+}
+    // --------------------------------------------------------------------
+    if (_move_for_up < 500) {
+        if (_bType == 2) {
+    _move_for_up += 1;
+    setPos(_xPos, _yPos - _move_for_up);
+}
+    }
+else {
+        _move_for_up = 0;
+}
+
+
+    QList<QGraphicsItem*> colliding_items3 = this->collidingItems();
+    int n = colliding_items3.size();
+    for(int i = 0; i < n; ++i){
+        if((typeid(*(colliding_items3[i])) == typeid(Player))){
+            //colliding_items3.clear();
+            qDebug() << "lalalalalala";
+            QMessageBox msgBox;
+            msgBox.setText("The document has been modified.");
+            msgBox.setInformativeText("The box just hit you!");
+            //msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
+            //msgBox.setDefaultButton(QMessageBox::Save);
+            QPushButton* myButton =new QPushButton("Click ME!");
+            msgBox.addButton(myButton ,QMessageBox::AcceptRole);
+            QObject::connect(myButton,&QPushButton::pressed,[](){ change_now = 1; qDebug("They pressed me!"); QApplication::exit(); });
+            int ret = msgBox.exec();               // QMessageBox::information(this, tr("title"), tr("message"));
+            }
+    }
+    update();
+}
+
+void Building::up() {
+    if (_move_for > 0) {
+        _move_for -= 1;
+        setPos(_xPos, _yPos + _move_for);
+
+    }
+}
+
+void Building::down() {
+    if (_move_for < 500) {
+        _move_for += 1;
+        setPos(_xPos, _yPos + _move_for);
+
+    }
+}

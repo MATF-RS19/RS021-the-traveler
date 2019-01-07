@@ -13,16 +13,16 @@ void Paris::buildSpecial(QJsonObject &json) {
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
+/*
     QJsonArray streets = json["streets"].toArray();
         //QJsonArray streets = json.value("streets").toArray();
         foreach(const QJsonValue &street, streets) {
             makeStreet(street["src"].toString(), street["sx"].toInt(), street["sy"].toInt(),
                                                  street["px"].toInt(), street["py"].toInt());
         }
-
+*/
         /* Postavljaju se zgrade */
-        QJsonObject eiffelObj =  json["eiffel"].toObject();
+  /*      QJsonObject eiffelObj =  json["eiffel"].toObject();
         Building *eiffel = new Building(eiffelObj["x"].toInt(), eiffelObj["y"].toInt(),
                                         eiffelObj["w"].toInt(), eiffelObj["h"].toInt(),
                                         eiffelObj["src"].toString());
@@ -51,7 +51,7 @@ void Paris::buildSpecial(QJsonObject &json) {
 
 
         connect(testParis, SIGNAL(notifyParis()), this, SLOT(isFinished()));
-
+*/
 }
 
 void Paris::isFinished(){

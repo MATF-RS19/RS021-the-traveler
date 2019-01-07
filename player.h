@@ -22,8 +22,11 @@ public:
 //public slots:
     void keyReleaseEvent(QKeyEvent *event);
 
+   // void collision();
+
+
 private:
-    int _step = 3;
+    int _step = 30;      // ubrzala sam je! bilo je step = 3
     int _xPos, _yPos;
     QPixmap _left = QPixmap(":/images/images/left2.png");
     QPixmap _right = QPixmap(":/images/images/right2.png");
@@ -32,6 +35,7 @@ private:
     QList<QGraphicsItem*> colliding_items2;
 public:
     int lifes = 3;
+    int _collision_detected = 0;
 };
 
 #endif // PLAYER_H

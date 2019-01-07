@@ -156,4 +156,13 @@ void Player::checkLifes() {
     }
 
 }
+/*
+void Player::collision() {
+    if(collisionWithBuildings() == true or collisionWithEvil() == true){
+        _collision_detected = 1;
+        qDebug() << _collision_detected;
+    }
+}
+*/
+
 

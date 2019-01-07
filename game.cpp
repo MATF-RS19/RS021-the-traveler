@@ -10,8 +10,8 @@
 #include <QJsonArray>
 
 extern int a;
-
-
+extern int change_now;
+// 0 na poc
 Game::Game(){
 
     Paris *paris = new Paris();
@@ -38,6 +38,7 @@ void Game::start(){
         QJsonDocument cityD = f.makeJSONDoc();
 
         QJsonArray buildings = cityD["buildings"].toArray();
+       // if (change_now == 1)
         (*it)->buildBasic(cityD["dimensions"].toObject(), cityD["background"].toString(), buildings);
 
         QJsonObject obj = cityD["special"].toObject();
@@ -85,7 +86,14 @@ qDebug() << a;
 
     }*/
 
-    listOfCities[0]->show();
+    listOfCities[1]->show();
+
+/* ne moze ovde taj uslov...
+    if (change_now ==1) {
+    listOfCities[1]->show();
+    change_now = 0;
+    }
+    */
     connect(listOfCities[0], SIGNAL(isFinished()), this, SLOT(goToNextLevel(1)));
 }
 

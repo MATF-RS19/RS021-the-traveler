@@ -4,6 +4,9 @@
 #include <QList>
 #include "city.h"
 
+extern int change_now;
+
+
 /*
     Ova klasa sadrzi listu gradova koje igrac treba da obidje
     i metod kojim se pokrece igra u tim gradovima.

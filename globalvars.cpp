@@ -1,4 +1,3 @@
-#include <glob.h>
 #include "globalvars.h"
 
 
