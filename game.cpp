@@ -4,8 +4,10 @@
 #include <QDebug>
 #include <iterator>
 #include "player.h"
+#include "myqfile.h"
 
-
+#include <QMediaPlayer>
+#include <QJsonArray>
 
 extern int a;
 
@@ -15,7 +17,7 @@ Game::Game(){
     Paris *paris = new Paris();
     Tokyo *tokyo = new Tokyo();
     listOfCities.push_back(tokyo);
-    listOfCities.push_back(paris);
+    //listOfCities.push_back(paris);
 }
 
 void Game::start(){
@@ -26,10 +28,26 @@ void Game::start(){
 
   qDebug() << a;
     qDebug() << listOfCities[0]->_player->lifes;
+    QMediaPlayer * music = new QMediaPlayer();
 
     QList<City*>::iterator it;
     for(it = listOfCities.begin(); it != listOfCities.end(); it++){
-        (*it)->buildCity();
+        QString fileName = ":/json/" + (*it)->getName() + ".json";
+        qDebug() << fileName;
+        myQfile f(fileName);
+        QJsonDocument cityD = f.makeJSONDoc();
+
+        QJsonArray buildings = cityD["buildings"].toArray();
+        (*it)->buildBasic(cityD["dimensions"].toObject(), cityD["background"].toString(), buildings);
+
+        QJsonObject obj = cityD["special"].toObject();
+        (*it)->buildSpecial(obj);
+
+        QString musicUrl = cityD["music"].toString();
+        qDebug() << musicUrl;
+        music->setMedia(QUrl(musicUrl));
+        music->play();
+
     }
 
 
@@ -57,6 +75,15 @@ qDebug() << a;
          listOfCities[1]->show();
     }
     */
+
+
+    /* OVako se otvore svi gradovi
+     * for(it = listOfCities.begin(); it != listOfCities.end(); it++) {
+        (*it)->show();
+        if((*it)->ifFinished())
+            (*it)->close();
+
+    }*/
 
     listOfCities[0]->show();
 }

@@ -4,8 +4,8 @@
 #include "bullet.h"
 #include "player.h"
 
-void Tokyo::buildCity(){
-
+void Tokyo::buildSpecial(QJsonObject &json){
+/*
     setCityDimensions(0, 0, 900, 599);
     setBackgraundImage(":/images/images/chinese-pattern-background.jpg");
 
@@ -21,7 +21,7 @@ void Tokyo::buildCity(){
     listOfBuildings.append(new Building(550,0,80,80, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(620,0,80,80, ":/images/images/Building06.png"));
     listOfBuildings.append(new Building(750,0,80,80, ":/images/images/Building06.png"));
-    listOfBuildings.append(new Building(820,0,80,80, ":/images/images/tokyo_grass.png"));
+    listOfBuildings.append(new Building(820,0,80,80, ":/images/images/tokyo_grass.png"));*/
 /*
     listOfBuildings.append(new Building(0,170, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(70,170, ":/images/images/tokyo_grass.png"));
@@ -35,7 +35,7 @@ void Tokyo::buildCity(){
     listOfBuildings.append(new Building(750,170, ":/images/images/Building06.png"));
     listOfBuildings.append(new Building(820,170, ":/images/images/tokyo_grass.png"));
 */
-    listOfBuildings.append(new Building(0,340,80,80, ":/images/images/tokyo_grass.png"));
+   /* listOfBuildings.append(new Building(0,340,80,80, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(70,340,80,80, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(140,340,80,80, ":/images/images/tokyo_building_type_2.png"));
    // listOfBuildings.append(new Building(210,340, ":/images/images/tokyo_building_type_2.png"));
@@ -57,7 +57,7 @@ void Tokyo::buildCity(){
     listOfBuildings.append(new Building(550,510,80,80, ":/images/images/tokyo_building_type_2.png"));
     listOfBuildings.append(new Building(620,510,80,80, ":/images/images/tokyo_grass.png"));
     listOfBuildings.append(new Building(750,510,80,80, ":/images/images/tokyo_building_type_2.png"));
-    listOfBuildings.append(new Building(820,510,80,80, ":/images/images/tokyo_grass.png"));
+    listOfBuildings.append(new Building(820,510,80,80, ":/images/images/tokyo_grass.png"));*/
 
     /*
      * postavlja item-e na scenu
@@ -69,7 +69,7 @@ void Tokyo::buildCity(){
     // PROBLEM:
     // svi objekti (buildings) su u listi listOfBuildings ali se NE PRIKAZUJU na sceni!
 
-    foreach(Building *b, listOfBuildings) _scene->addItem(b);
+    //foreach(Building *b, listOfBuildings) _scene->addItem(b);
 
     for (int i=0; i < listOfBuildings.size(); i++)
     {

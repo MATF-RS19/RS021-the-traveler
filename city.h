@@ -17,7 +17,11 @@ public:
     void setBackgraundImage(QString path);
     void setCityDimensions(int x, int y, int w, int h);
 
-    virtual void buildCity() = 0;
+    QString getName();
+    bool ifFinished();
+
+    void buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings);
+    virtual void buildSpecial(QJsonObject &json) = 0;
     /*extern*/ QList<Evil*> listOfEvils;
 
 protected:

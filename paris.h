@@ -15,12 +15,12 @@ public:
         :City("Paris", 750, 250)
     {}
 
+    void buildSpecial(QJsonObject &json);
+
 private slots:
     void findKey();
 
 private:
-
-    void buildCity();
     void makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yPos);
     Building *_key;
     bool _foundKey = false;

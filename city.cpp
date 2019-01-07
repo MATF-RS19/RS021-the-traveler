@@ -4,6 +4,9 @@
 #include <QDebug>
 #include <QSize>
 
+#include <QJsonArray>
+#include <QJsonObject>
+
 City::City(QString name, int playerPosX, int playerPosY){
     _name = name;
     _scene = new QGraphicsScene();
@@ -36,4 +39,23 @@ void City::setCityDimensions(int x, int y, int w, int h){
      */
     _scene->setSceneRect(x, y, w, h);
     setFixedSize(w, h);
+}
+
+QString City::getName() {
+    return _name;
+}
+
+bool City::ifFinished()
+{
+    return _finished;
+}
+
+void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings){
+
+    setCityDimensions(jsonObj["x"].toInt(), jsonObj["y"].toInt(), jsonObj["w"].toInt(), jsonObj["h"].toInt());
+    setBackgraundImage(img);
+
+    foreach(const QJsonValue &building, buildings) {
+        _scene->addItem(new Building(building["x"].toInt(), building["y"].toInt(),building["w"].toInt(),building["h"].toInt(), building["src"].toString()));
+    }
 }

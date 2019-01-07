@@ -13,9 +13,10 @@ public:
         :City("Tokyo", 250, 230)
     {}
 
+    void buildSpecial(QJsonObject &json);
 private:
    // Evil * evil;
-    void buildCity();
+    //void buildCity();
     //bool finished;
 };
 

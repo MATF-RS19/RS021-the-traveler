@@ -1,0 +1,29 @@
+{
+"name" : "Paris",
+"playerPos" : {"x" : 250, "y" : 230},
+"background" : ":/images/images/paris_background6.jpg",
+"dimensions" : {"x" : 0, "y" : 0, "w" : 900, "h" : 599},
+"buildings" : [
+    {"x" : 320, "y" : 55, "w" : 100, "h" : 120, "src" : ":/images/images/paris_tree3.png"},
+    {"x" : 300, "y" : 230, "w" : 200, "h" : 120, "src" : ":/images/images/paris_park.png"},
+    {"x" : 240, "y" : 180, "w" : 70, "h" : 90, "src" : ":/images/images/paris_tree1.png"},
+    {"x" : 280, "y" : 180, "w" : 70, "h" : 90, "src" : ":/images/images/paris_tree1.png"},
+    {"x" : 320, "y" : 180, "w" : 70, "h" : 90, "src" : ":/images/images/paris_tree1.png"},
+    {"x" : 360, "y" : 180, "w" : 70, "h" : 90, "src" : ":/images/images/paris_tree1.png"},
+    {"x" : 400, "y" : 180, "w" : 70, "h" : 90, "src" : ":/images/images/paris_tree1.png"}
+    ],
+"music" : "qrc:/sounds/francais.mp3",
+"special" : {
+"streets" : [ 
+        { "src" : ":/images/images/paris_street_3.png", "sx" : 400, "sy" :  100, "px" : 0, "py" : 200},
+    { "src" : ":/images/images/paris_street_4.png", "sx" : 100, "sy" : 100, "px" : 400, "py" : 200},
+    { "src" : ":/images/images/paris_street_5.png", "sx" : 100, "sy" : 100, "px" : 400, "py" : 300},
+    { "src" : ":/images/images/paris_street_3.png", "sx" : 400, "sy" :100, "px" : 500, "py" : 300},
+    { "src" : ":/images/images/paris_street_1.png", "sx" : 100, "sy" : 221, "px" : 250, "py" : 0}
+    ],
+"eiffel" : {"x" : 5, "y" : 150, "w" : 250, "h" : 300, "src" : ":/images/images/paris_eiffel_tower.png"},
+"notreDame" : {"x" : 350, "y" : 8, "w" : 150, "h" : 200, "src" : ":/images/images/paris_notre_dame2.jpg"},
+"triumphalArch" : {"x" : 10, "y" : 8, "w" : 180, "h" : 180, "src" : ":/images/images/paris-triumphal-arch.svg"},
+"key" : {"x" : 110, "y" : 80, "w" : 10, "h" : 20, "src" : ":/images/images/paris_key.png"}
+    }
+}

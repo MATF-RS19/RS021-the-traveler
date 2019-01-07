@@ -38,7 +38,8 @@ SOURCES += \
     bullet.cpp \
     evil.cpp \
     globalvars.cpp \
-    settingsdialog.cpp
+    settingsdialog.cpp \
+    myqfile.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -52,7 +53,8 @@ HEADERS += \
     bullet.h \
     evil.h \
     globalvars.h \
-    settingsdialog.h
+    settingsdialog.h \
+    myqfile.h
 
 FORMS += \
         mainmenuwindow.ui \
@@ -66,4 +68,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     images.qrc \
     song.qrc \
-    buttons.qrc
+    buttons.qrc \
+    json.qrc
