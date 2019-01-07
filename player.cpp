@@ -92,8 +92,8 @@ void Player::keyReleaseEvent(QKeyEvent *event){
 
             _xPos = x();
             _yPos = y();
-            qDebug() << "x: " << _xPos;
-            qDebug() << "y: " << _yPos;
+            //qDebug() << "x: " << _xPos;
+            //qDebug() << "y: " << _yPos;
     }
 }
 

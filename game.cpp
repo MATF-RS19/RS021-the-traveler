@@ -16,8 +16,8 @@ Game::Game(){
 
     Paris *paris = new Paris();
     Tokyo *tokyo = new Tokyo();
+    listOfCities.push_back(paris);
     listOfCities.push_back(tokyo);
-    //listOfCities.push_back(paris);
 }
 
 void Game::start(){
@@ -26,8 +26,8 @@ void Game::start(){
         Ovim metodom se prave i prikazuju gradovi iz liste.
     */
 
-  qDebug() << a;
-    qDebug() << listOfCities[0]->_player->lifes;
+   // qDebug() << a;
+   // qDebug() << listOfCities[0]->_player->lifes;
     QMediaPlayer * music = new QMediaPlayer();
 
     QList<City*>::iterator it;
@@ -59,11 +59,11 @@ void Game::start(){
         listOfCities[i]->show();
     */
 
-    /*
-    for(it = listOfCities.begin(); it != listOfCities.end(); it++){
+
+    /*for(it = listOfCities.begin(); it != listOfCities.end(); it++){
         (*it)->show();
-    }
-*/
+    }*/
+
     /*
     listOfCities[0]->show();
     qDebug() << listOfCities[0]->_player->lifes;
@@ -86,6 +86,11 @@ qDebug() << a;
     }*/
 
     listOfCities[0]->show();
+    connect(listOfCities[0], SIGNAL(isFinished()), this, SLOT(goToNextLevel(1)));
+}
+
+void Game::goToNextLevel(int level){
+    listOfCities[level]->show();
 }
 
 

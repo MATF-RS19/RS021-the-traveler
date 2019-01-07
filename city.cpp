@@ -17,6 +17,12 @@ City::City(QString name, int playerPosX, int playerPosY){
     _scene->addItem(_player->getFakePlayer());
 }
 
+City::~City(){
+    if(_finished){
+        this->close();
+    }
+}
+
     /*
      * izmenjen metod za postavljanje pozadine
      * jer prethodni nije imao mogucnost skaliranja slike
@@ -44,11 +50,11 @@ void City::setCityDimensions(int x, int y, int w, int h){
 QString City::getName() {
     return _name;
 }
-
+/*
 bool City::ifFinished()
 {
     return _finished;
-}
+}*/
 
 void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings){
 
@@ -57,5 +63,11 @@ void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJso
 
     foreach(const QJsonValue &building, buildings) {
         _scene->addItem(new Building(building["x"].toInt(), building["y"].toInt(),building["w"].toInt(),building["h"].toInt(), building["src"].toString()));
+    }
+}
+
+void City::moveToNextLevel(){
+    if(_finished){
+        this->close();
     }
 }

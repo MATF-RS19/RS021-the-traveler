@@ -9,10 +9,16 @@
     i metod kojim se pokrece igra u tim gradovima.
 */
 
-class Game {
+class Game : public QObject {
+    Q_OBJECT
+
 public:
     Game();
     void start();
+
+private slots:
+    void goToNextLevel(int level);
+
 private:
     QList<City*> listOfCities;
 };

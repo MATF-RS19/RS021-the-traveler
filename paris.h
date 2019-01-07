@@ -8,7 +8,7 @@
 #include "city.h"
 
 class Paris : public City {
-
+    Q_OBJECT
 
 public:
     Paris()
@@ -17,8 +17,10 @@ public:
 
     void buildSpecial(QJsonObject &json);
 
-private slots:
-    void findKey();
+
+public slots:
+    void isFinished();
+    //void findKey();
 
 private:
     void makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yPos);

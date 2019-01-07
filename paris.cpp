@@ -2,11 +2,18 @@
 #include <QObject>
 #include <QDebug>
 #include "paris.h"
+#include "paris_utility.h"
 
 #include <QJsonObject>
 #include <QJsonArray>
 
+extern FinalTest *testParis;
+
 void Paris::buildSpecial(QJsonObject &json) {
+
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     QJsonArray streets = json["streets"].toArray();
         //QJsonArray streets = json.value("streets").toArray();
         foreach(const QJsonValue &street, streets) {
@@ -19,12 +26,14 @@ void Paris::buildSpecial(QJsonObject &json) {
         Building *eiffel = new Building(eiffelObj["x"].toInt(), eiffelObj["y"].toInt(),
                                         eiffelObj["w"].toInt(), eiffelObj["h"].toInt(),
                                         eiffelObj["src"].toString());
+        eiffel->setName("Eiffel");
         _scene->addItem(eiffel);
 
         QJsonObject notreDameObj =  json["notreDame"].toObject();
         Building *notreDame = new Building(notreDameObj["x"].toInt(), notreDameObj["y"].toInt(),
                                            notreDameObj["w"].toInt(), notreDameObj["h"].toInt(),
                                            notreDameObj["src"].toString());
+        notreDame->setName("Notre Dame");
         _scene->addItem(notreDame);
 
         QJsonObject triumphalArchObj =  json["triumphalArch"].toObject();
@@ -39,7 +48,17 @@ void Paris::buildSpecial(QJsonObject &json) {
                             keyObj["src"].toString());
         _key->setName("key_paris");
         _scene->addItem(_key);
+
+
+        connect(testParis, SIGNAL(notifyParis()), this, SLOT(isFinished()));
+
 }
+
+void Paris::isFinished(){
+    this->close();
+    qDebug() << "PARIS - isFinished";
+}
+
 
 /*void Paris::buildCity(){
 
@@ -103,17 +122,17 @@ void Paris::makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yP
     street->setZValue(-1);
     _scene->addItem(street);
 }
-
+/*
 void Paris::findKey(){
 
     qDebug() << "player x: " << _player->getX();
     qDebug() << "player y: " << _player->getY();
 
     qDebug() << "_foundKey: " << _foundKey;
-    if(qAbs(_player->getX() - _key->x()) <= 120/* || qAbs(_player->getY() - _key->y()) <= 10*/){
+    if(qAbs(_player->getX() - _key->x()) <= 120){
         _foundKey = true;
         qDebug() << "_foundKey: " << _foundKey;
     }
 
 }
-
+*/

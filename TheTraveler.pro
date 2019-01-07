@@ -39,7 +39,8 @@ SOURCES += \
     evil.cpp \
     globalvars.cpp \
     settingsdialog.cpp \
-    myqfile.cpp
+    myqfile.cpp \
+    paris_utility.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -54,7 +55,8 @@ HEADERS += \
     evil.h \
     globalvars.h \
     settingsdialog.h \
-    myqfile.h
+    myqfile.h \
+    paris_utility.h
 
 FORMS += \
         mainmenuwindow.ui \
