@@ -8,14 +8,15 @@
 
 #include <QMediaPlayer>
 #include <QJsonArray>
+#include <QApplication>
 
 extern int a;
 extern int change_now;
 // 0 na poc
 Game::Game(){
 
-    Paris *paris = new Paris();
-    Tokyo *tokyo = new Tokyo();
+    paris = new Paris();
+    tokyo = new Tokyo();
     listOfCities.push_back(paris);
     listOfCities.push_back(tokyo);
 }
@@ -86,19 +87,42 @@ qDebug() << a;
 
     }*/
 
-    listOfCities[1]->show();
-
+    if (tokyo->_player->level_number > 0) {
+        qDebug() << "fdfd";
+        listOfCities[0]->show();
+    }
+    else {
+        qDebug() << "tokyooo";
+        listOfCities[1]->show();
+    }
+    /*
+switch (tokyo->_player->level_number) {
+    case 0: {
+        listOfCities[1]->show();
+        break;
+}
+    case 1: {
+        listOfCities[0]->show();
+        break;
+}
+     case 2: {QApplication::exit();
+    break;
+}
+    default:
+        break;
+    }
+*/
 /* ne moze ovde taj uslov...
     if (change_now ==1) {
     listOfCities[1]->show();
     change_now = 0;
     }
     */
-    connect(listOfCities[0], SIGNAL(isFinished()), this, SLOT(goToNextLevel(1)));
+  //  connect(listOfCities[0], SIGNAL(isFinished()), this, SLOT(goToNextLevel(1)));
 }
 
 void Game::goToNextLevel(int level){
-    listOfCities[level]->show();
+   // listOfCities[level]->show();
 }
 
 

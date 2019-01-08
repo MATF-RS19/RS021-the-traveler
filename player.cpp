@@ -60,6 +60,12 @@ void Player::keyPressEvent(QKeyEvent *event){
                 this->setPixmap(_right);
                 setPos(x() + _step, y());
             }
+            else /*if (pos().x() + 60 >= 900) */{
+                qDebug() << "kraaaaj";
+                level_number +=1;
+                qDebug() << level_number;
+
+            }
         }
     }
     else if(event->key() == Qt::Key_Up){

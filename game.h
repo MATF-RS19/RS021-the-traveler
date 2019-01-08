@@ -3,6 +3,8 @@
 
 #include <QList>
 #include "city.h"
+#include "tokyo.h"
+#include "paris.h"
 
 extern int change_now;
 
@@ -18,6 +20,9 @@ class Game : public QObject {
 public:
     Game();
     void start();
+
+    Paris *paris;
+    Tokyo *tokyo;
 
 private slots:
     void goToNextLevel(int level);

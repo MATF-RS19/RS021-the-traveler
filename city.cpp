@@ -7,7 +7,8 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-City::City(QString name, int playerPosX, int playerPosY){
+City::City(QString name, int playerPosX, int playerPosY, int level_number)
+    :_level_number(level_number) {
     _name = name;
     _scene = new QGraphicsScene();
     setScene(_scene);

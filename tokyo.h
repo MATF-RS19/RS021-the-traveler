@@ -11,7 +11,7 @@
 class Tokyo : public City {
 public:
     Tokyo()
-        :City("Tokyo", 250, 230)
+        :City("Tokyo", 250, 230, 0)
     {}
 
     void buildSpecial(QJsonObject &json);

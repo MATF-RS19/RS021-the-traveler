@@ -36,6 +36,7 @@ private:
 public:
     int lifes = 3;
     int _collision_detected = 0;
+    int level_number = 0;
 };
 
 #endif // PLAYER_H

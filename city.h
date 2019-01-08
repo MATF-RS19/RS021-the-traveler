@@ -12,7 +12,7 @@
 class City : public QGraphicsView {
 
 public:
-    City(QString name, int playerPosX, int playerPosY);
+    City(QString name, int playerPosX, int playerPosY, int level_number);
     ~City();
 
     void setBackgraundImage(QString path);
@@ -35,6 +35,7 @@ protected:
     bool _finished;     // bolje ovde da bude nego u svakom gradu pojedinacno
 public:
     Player *_player;
+    int _level_number;
 };
 
 #endif // CITY_H

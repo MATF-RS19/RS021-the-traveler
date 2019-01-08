@@ -48,7 +48,7 @@ void Tokyo::buildSpecial(QJsonObject &json){
 
     QTimer *timer = new QTimer(this);
     QObject::connect(timer, SIGNAL(timeout()), _scene, SLOT(advance()));
-    timer->start(19);
+    timer->start(50);
 
     /*
     QTimer *timer2 = new QTimer(this);

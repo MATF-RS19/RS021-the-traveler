@@ -7,7 +7,7 @@
 #include <QMediaPlayer>
 #include <QList>
 #include <QDialog>
-
+#include <QMessageBox>
 
 
 #include "game.h"
@@ -152,15 +152,23 @@ void MainMenuWindow::setBackgroundImage(QString imagePath)
 
 void MainMenuWindow::on_play_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);  // TODO dodati 1. nivo (i ostale)
-
-    Game *game = new Game();
-    game->start();
-    music->stop();
-    close();
+    if (ui->lineEditForName->text().isEmpty()) {
+        QMessageBox msgBoxAlert;
+        msgBoxAlert.setWindowTitle("Whoooa!");
+        msgBoxAlert.setInformativeText("Enter your name!");
+        QPushButton* myButton =new QPushButton("Ok");
+        msgBoxAlert.addButton(myButton ,QMessageBox::AcceptRole);
+        QObject::connect(myButton,&QPushButton::pressed,[](){qDebug("Ok is clicked!"); });
+        int ret = msgBoxAlert.exec();
+    }else {
+        ui->stackedWidget->setCurrentIndex(3);
+        Game *game = new Game();
+        game->start();
+        music->stop();
+        close();
 
 }
-
+}
 void MainMenuWindow::on_controls_clicked()
 {
     ui->stackedWidget->setCurrentIndex(1);
