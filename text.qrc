@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/text">
+        <file>text/NotreDame.txt</file>
+    </qresource>
+</RCC>

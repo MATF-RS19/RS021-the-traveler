@@ -71,4 +71,5 @@ RESOURCES += \
     images.qrc \
     song.qrc \
     buttons.qrc \
-    json.qrc
+    json.qrc \
+    text.qrc
