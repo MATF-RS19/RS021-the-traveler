@@ -17,9 +17,10 @@ extern int a;
      *
      */
 
-Player::Player(int x, int y){
+Player::Player(int x, int y, int step){
     _xPos = x;
     _yPos = y;
+    _step = step;
     this->setPos(_xPos,_yPos);
     this->setPixmap(_left);
 
@@ -31,8 +32,6 @@ Player::Player(int x, int y){
     _fakePlayer->setPos(_xPos,_yPos);
     _fakePlayer->setPixmap(QPixmap(":/images/images/fake-player.png"));
     _fakePlayer->setScale(0.6);
-
-    //Bullet *bul = new Bullet();
 
 }
 
@@ -60,11 +59,17 @@ void Player::keyPressEvent(QKeyEvent *event){
                 this->setPixmap(_right);
                 setPos(x() + _step, y());
             }
-            else /*if (pos().x() + 60 >= 900) */{
-                qDebug() << "kraaaaj";
-                level_number +=1;
-                qDebug() << level_number;
 
+            /* Ako se plejer nalazi na nivou 0, tj u Tokiu, i uspeo je da popegne Evel objektima i dodje do desne strane
+             * prozora, onda se emituje signal za prelazak u naredni nivo. */
+            //qDebug() << "***** level_number: " << level_number;
+            if(level_number == 0){
+                if (pos().x() + 60 >= 900){
+                    //qDebug() << "kraaaaj";
+                    level_number = 1;
+                    //qDebug() << level_number;
+                    emit escapedEvilObjects(level_number);
+                }
             }
         }
     }
@@ -116,13 +121,16 @@ int Player::getY(){
     return _yPos;
 }
 
+void Player::setLevelNumber(int val){
+    level_number = val;
+}
+
+
 bool Player::collisionWithBuildings(){
     QList<QGraphicsItem*> colliding_items = _fakePlayer->collidingItems();
-    //qDebug() << colliding_items;
     int n = colliding_items.size();
     for(int i = 0; i < n; ++i){
         if((typeid(*(colliding_items[i])) == typeid(Building))){
-            //colliding_items.clear();
             return true;
         }
     }
@@ -131,11 +139,9 @@ bool Player::collisionWithBuildings(){
 
 bool Player::collisionWithEvil(){
     colliding_items2 = _fakePlayer->collidingItems();
-    //qDebug() << colliding_items;
     int n = colliding_items2.size();
     for(int i = 0; i < n; ++i){
         if((typeid(*(colliding_items2[i])) == typeid(Evil))){
-            //colliding_items.clear();
             return true;
         }
     }

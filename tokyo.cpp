@@ -40,7 +40,7 @@ void Tokyo::buildSpecial(QJsonObject &json){
     _scene->addItem(evil);
 */
 
-    Player *pl = new Player(250, 230);
+    Player *pl = new Player(250, 230, 20);
 
 
     Bullet *bullet = new Bullet(pl->getX(), pl->getY());

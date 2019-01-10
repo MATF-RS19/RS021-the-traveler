@@ -13,45 +13,45 @@ void Paris::buildSpecial(QJsonObject &json) {
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-/*
+
     QJsonArray streets = json["streets"].toArray();
         //QJsonArray streets = json.value("streets").toArray();
         foreach(const QJsonValue &street, streets) {
             makeStreet(street["src"].toString(), street["sx"].toInt(), street["sy"].toInt(),
                                                  street["px"].toInt(), street["py"].toInt());
         }
-*/
+
         /* Postavljaju se zgrade */
-  /*      QJsonObject eiffelObj =  json["eiffel"].toObject();
+        QJsonObject eiffelObj =  json["eiffel"].toObject();
         Building *eiffel = new Building(eiffelObj["x"].toInt(), eiffelObj["y"].toInt(),
                                         eiffelObj["w"].toInt(), eiffelObj["h"].toInt(),
-                                        eiffelObj["src"].toString());
+                                        eiffelObj["src"].toString(), eiffelObj["type"].toInt());
         eiffel->setName("Eiffel");
         _scene->addItem(eiffel);
 
         QJsonObject notreDameObj =  json["notreDame"].toObject();
         Building *notreDame = new Building(notreDameObj["x"].toInt(), notreDameObj["y"].toInt(),
                                            notreDameObj["w"].toInt(), notreDameObj["h"].toInt(),
-                                           notreDameObj["src"].toString());
+                                           notreDameObj["src"].toString(), notreDameObj["type"].toInt());
         notreDame->setName("Notre Dame");
         _scene->addItem(notreDame);
 
         QJsonObject triumphalArchObj =  json["triumphalArch"].toObject();
         Building *triumphalArch = new Building(triumphalArchObj["x"].toInt(), triumphalArchObj["y"].toInt(),
                                                triumphalArchObj["w"].toInt(), triumphalArchObj["h"].toInt(),
-                                               triumphalArchObj["src"].toString());
+                                               triumphalArchObj["src"].toString(), triumphalArchObj["type"].toInt());
         _scene->addItem(triumphalArch);
 
         QJsonObject keyObj = json["key"].toObject();
         _key = new Building(keyObj["x"].toInt(), keyObj["y"].toInt(),
                             keyObj["w"].toInt(), keyObj["h"].toInt(),
-                            keyObj["src"].toString());
+                            keyObj["src"].toString(), keyObj["type"].toInt());
         _key->setName("key_paris");
         _scene->addItem(_key);
 
 
         connect(testParis, SIGNAL(notifyParis()), this, SLOT(isFinished()));
-*/
+
 }
 
 void Paris::isFinished(){

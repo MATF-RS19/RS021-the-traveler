@@ -10,29 +10,31 @@
 //#include <qtglobal.h>
 
 class City : public QGraphicsView {
-
+    Q_OBJECT
 public:
-    City(QString name, int playerPosX, int playerPosY, int level_number);
+    City(QString name, int playerPosX, int playerPosY, int playerStep, int level_number);
     ~City();
 
     void setBackgraundImage(QString path);
     void setCityDimensions(int x, int y, int w, int h);
 
-    QString getName();
-    //bool ifFinished();
-
     void buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings);
     virtual void buildSpecial(QJsonObject &json) = 0;
+
+    QString getName();
+    Player* getPlayer();
+
     /*extern*/ QList<Evil*> listOfEvils;
 
-    void moveToNextLevel();
+    bool setFinished(bool val);
+
 
 protected:
     QGraphicsScene *_scene;
-    QList<Building*> listOfBuildings; // lista koja sadrzi sve gradjevine (treba ih cuvati zbog kasnije obrade kolizije sa njima)
+    QList<Building*> listOfBuildings;
    // QList<Evil*> listOfEvils;
     QString _name;
-    bool _finished;     // bolje ovde da bude nego u svakom gradu pojedinacno
+    bool _finished;
 public:
     Player *_player;
     int _level_number;

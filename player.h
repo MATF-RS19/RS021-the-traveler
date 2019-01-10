@@ -5,12 +5,13 @@
 #include <QKeyEvent>
 #include <QObject>
 
-class Player : public QGraphicsPixmapItem {
-    //Q_OBJECT
+class Player : public QObject, public QGraphicsPixmapItem {
+    Q_OBJECT
 public:
-    Player(int x, int y);
+    Player(int x, int y, int step);
     ~Player();
     void keyPressEvent(QKeyEvent *event);
+    void keyReleaseEvent(QKeyEvent *event);
     bool collisionWithBuildings();
     bool collisionWithEvil();
     void checkLifes();
@@ -19,24 +20,28 @@ public:
     int getX();
     int getY();
 
-//public slots:
-    void keyReleaseEvent(QKeyEvent *event);
+    void setLevelNumber(int val);
 
-   // void collision();
-
+/* escapedEvilObjects je signal koji se emituje kada plejer u prvom nivou uspe da pobegne objektima koji se pomeraju, izbegne Evel objekte i stigne do desne strane ekrana.
+ * Game objekat treba da prihvati ovaj signal i da predje na naredni nivo.
+ * Signale ne implementiramo posto su to virtualne funkcije koje, kada pozovemo sa emit, prosledjuju slotovima vrednosti svojih parametara.
+*/
+signals:
+    void escapedEvilObjects(int level);
 
 private:
-    int _step = 30;      // ubrzala sam je! bilo je step = 3
+    int _step;
     int _xPos, _yPos;
     QPixmap _left = QPixmap(":/images/images/left2.png");
     QPixmap _right = QPixmap(":/images/images/right2.png");
     bool collisionFlag = false;
     QGraphicsPixmapItem* _fakePlayer;
     QList<QGraphicsItem*> colliding_items2;
+    int level_number;
+
 public:
     int lifes = 3;
     int _collision_detected = 0;
-    int level_number = 0;
 };
 
 #endif // PLAYER_H

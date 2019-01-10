@@ -12,6 +12,7 @@ extern int change_now;
 class Building : public QObject, public QGraphicsItem{
         Q_OBJECT
 public:
+
     Building(int xPos, int yPos, int width, int height, QString img, int bType);
     ~Building();
 
@@ -39,7 +40,7 @@ private:
     QString _name;
     int _move_for = 0;
     int _move_for_up = 0;
-    Player *player = new Player(250, 230);
+    Player *player = new Player(250, 230, 20);
     QList<QGraphicsItem*> listica;
     int _bType;
 

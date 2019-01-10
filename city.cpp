@@ -7,13 +7,16 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-City::City(QString name, int playerPosX, int playerPosY, int level_number)
+City::City(QString name, int playerPosX, int playerPosY, int playerStep, int level_number)
     :_level_number(level_number) {
     _name = name;
     _scene = new QGraphicsScene();
     setScene(_scene);
+
     _finished = false;
-    _player = new Player(playerPosX, playerPosY);
+
+    _player = new Player(playerPosX, playerPosY, playerStep);
+    _player->setLevelNumber(level_number);
     _scene->addItem(_player);
     _scene->addItem(_player->getFakePlayer());
 }
@@ -51,6 +54,10 @@ void City::setCityDimensions(int x, int y, int w, int h){
 QString City::getName() {
     return _name;
 }
+
+Player *City::getPlayer(){
+    return _player;
+}
 /*
 bool City::ifFinished()
 {
@@ -67,8 +74,7 @@ void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJso
     }
 }
 
-void City::moveToNextLevel(){
-    if(_finished){
-        this->close();
-    }
+bool City::setFinished(bool val){
+    _finished = val;
 }
+

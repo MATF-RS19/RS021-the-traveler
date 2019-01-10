@@ -24,7 +24,8 @@ public:
     Paris *paris;
     Tokyo *tokyo;
 
-private slots:
+/* goToNextLevel je slot koji prihvata signal o zavrsetku jednog nivoa i prelazi na naredni nivo koji mu se prosledjuje kao parametar. */
+public slots:
     void goToNextLevel(int level);
 
 private:

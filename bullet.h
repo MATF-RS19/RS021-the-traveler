@@ -24,7 +24,7 @@ private:
     int _x_coord;
     int _y_coord;
     QString _name;
-    Player *p = new Player(250, 230);
+    Player *p = new Player(250, 230, 20);
 };
 
 #endif // BULLET_H
