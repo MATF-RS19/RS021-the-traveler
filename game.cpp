@@ -9,12 +9,13 @@
 #include <QMediaPlayer>
 #include <QJsonArray>
 #include <QApplication>
+#include <QGraphicsItem>
 
 extern int a;
 extern int change_now;
 // 0 na poc
 Game::Game(){
-
+    _music = new QMediaPlayer();
     paris = new Paris();
     tokyo = new Tokyo();
     listOfCities.push_back(tokyo);
@@ -29,28 +30,27 @@ void Game::start(){
 
    // qDebug() << a;
    // qDebug() << listOfCities[0]->_player->lifes;
-    QMediaPlayer * music = new QMediaPlayer();
 
-    QList<City*>::iterator it;
-    for(it = listOfCities.begin(); it != listOfCities.end(); it++){
-        QString fileName = ":/json/" + (*it)->getName() + ".json";
+    //QList<City*>::iterator it;
+    //for(it = listOfCities.begin(); it != listOfCities.end(); it++)
+        QString fileName = ":/json/" + tokyo->getName() + ".json";
         qDebug() << fileName;
         myQfile f(fileName);
         QJsonDocument cityD = f.makeJSONDoc();
 
         QJsonArray buildings = cityD["buildings"].toArray();
        // if (change_now == 1)
-        (*it)->buildBasic(cityD["dimensions"].toObject(), cityD["background"].toString(), buildings);
+        tokyo->buildBasic(cityD["dimensions"].toObject(), cityD["background"].toString(), buildings);
 
         QJsonObject obj = cityD["special"].toObject();
-        (*it)->buildSpecial(obj);
+        tokyo->buildSpecial(obj);
 
         QString musicUrl = cityD["music"].toString();
         qDebug() << musicUrl;
-        music->setMedia(QUrl(musicUrl));
-        music->play();
+        _music->setMedia(QUrl(musicUrl));
+        _music->play();
 
-    }
+
 
 
     /*
@@ -69,9 +69,40 @@ qDebug() << a;
     connect(listOfCities[0]->_player, SIGNAL(escapedEvilObjects(int)), this, SLOT(goToNextLevel(int)));
 }
 
+void Game::loadNextLevel()
+{
+
+    /*QList<City*>::iterator it;
+    for(it = listOfCities.begin(); it != listOfCities.end(); it++)*/
+        QString fileName = ":/json/" + paris->getName() + ".json";
+        qDebug() << fileName;
+        myQfile f(fileName);
+        QJsonDocument cityD = f.makeJSONDoc();
+
+        QJsonArray buildings = cityD["buildings"].toArray();
+       // if (change_now == 1)
+        paris->buildBasic(cityD["dimensions"].toObject(), cityD["background"].toString(), buildings);
+
+        QJsonObject obj = cityD["special"].toObject();
+        paris->buildSpecial(obj);
+
+        QString musicUrl = cityD["music"].toString();
+        qDebug() << musicUrl;
+        _music->setMedia(QUrl(musicUrl));
+        _music->play();
+}
+
 void Game::goToNextLevel(int level){
     //qDebug() << "goToNextLevel";
-    listOfCities[level-1]->close();
+    for(QGraphicsItem *item: listOfCities[level-1]->items()) {
+    //listOfCities[level-1]->getScene()->clear();
+        delete item;
+        _music->stop();
+        listOfCities[level-1]->close();
+    }
+    //listOfCities[level-1]->close();
+    loadNextLevel();
+
     listOfCities[level]->show();
 }
 

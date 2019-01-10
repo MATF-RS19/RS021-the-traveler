@@ -21,6 +21,11 @@ City::City(QString name, int playerPosX, int playerPosY, int playerStep, int lev
     _scene->addItem(_player->getFakePlayer());
 }
 
+QGraphicsScene * City::getScene()
+{
+    return _scene;
+}
+
 City::~City(){
     if(_finished){
         this->close();
@@ -50,6 +55,8 @@ void City::setCityDimensions(int x, int y, int w, int h){
     _scene->setSceneRect(x, y, w, h);
     setFixedSize(w, h);
 }
+
+
 
 QString City::getName() {
     return _name;

@@ -13,10 +13,12 @@ class City : public QGraphicsView {
     Q_OBJECT
 public:
     City(QString name, int playerPosX, int playerPosY, int playerStep, int level_number);
+    QGraphicsScene * getScene();
     ~City();
 
     void setBackgraundImage(QString path);
     void setCityDimensions(int x, int y, int w, int h);
+
 
     void buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings);
     virtual void buildSpecial(QJsonObject &json) = 0;
