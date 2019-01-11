@@ -69,30 +69,34 @@ void Game::start(int level){
    // qDebug() << a;
    // qDebug() << listOfCities[0]->_player->lifes;
 
-    connect(_player, SIGNAL(escapedEvilObjects(int)), this, SLOT(goToNextLevel(int)));
+    connect(_listOfCities[level], SIGNAL(goToNextLevel(int)), this, SLOT(goToNextLevel(int)));
 }
 
 void Game::goToNextLevel(int level){
+
+
+    level = 1;
+    for(QGraphicsItem *item: this->items()) {
+        if(item != _player) {
+            delete item;
+            _music->stop();
+        }
+    }
+
     /*
     *
     * Ukloniti komentar
     * Ako zelite da zavrsite igru
     * Nakon prvog nivoa
     *
+    *if(level == 1) {
+    *   emit finishedGame();
     *
-    * if(level == 1)
-    * emit finishedGame();
+    * }
+    *
+    * Zakomentarisati sledecu liniju
     *
     */
-    qDebug() << "krajj";
-    level = 1;
-    for(QGraphicsItem *item: this->items()) {
-    if(item != _player) {
-        delete item;
-        _music->stop();
-        }
-    }
-
     start(level);
 }
 

@@ -86,9 +86,14 @@ void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJso
     foreach(const QJsonValue &building, buildings) {
         _listOfBuildings.push_back(new Building(building["x"].toInt(), building["y"].toInt(),building["w"].toInt(),building["h"].toInt(), building["src"].toString(), building["type"].toInt()));
     }
+
+    connect(_player, SIGNAL(escapedEvilObjects(int)), this, SLOT(callNextLevel(int)));
 }
 
 bool City::setFinished(bool val){
     _finished = val;
 }
 
+void City::callNextLevel(int level) {
+    emit goToNextLevel(level);
+}

@@ -65,6 +65,7 @@ void Tokyo::buildSpecial(QJsonObject &json){
 
     timer2->start(500);*/
 
+    //connect(_player, SIGNAL(escapedEvilObjects(int)), this, SLOT(goToNextLevel(int)));
 }
 
 

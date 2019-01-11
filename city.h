@@ -29,9 +29,13 @@ public:
     Player* getPlayer();
 
     /*extern*/ QList<Evil*> listOfEvils;
-
     bool setFinished(bool val);
 
+
+public slots:
+    void callNextLevel(int level);
+signals:
+    void goToNextLevel(int level);
 
 protected:
     QGraphicsScene *_scene;
@@ -43,6 +47,7 @@ protected:
 public:
     //Player *_player;
     int _level_number;
+
 };
 
 #endif // CITY_H
