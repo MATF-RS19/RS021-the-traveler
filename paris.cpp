@@ -114,13 +114,13 @@ void Paris::isFinished(){
 //}
 
 void Paris::makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yPos){
-    QGraphicsPixmapItem *street = new QGraphicsPixmapItem();
+   /* QGraphicsPixmapItem *street = new QGraphicsPixmapItem();
     QPixmap *streetImage = new QPixmap(imgPath);
     *streetImage = streetImage->scaled(xScale, yScale);
     street->setPixmap(*streetImage);
     street->setPos(xPos, yPos);
     street->setZValue(-1);
-    _scene->addItem(street);
+    _scene->addItem(street);*/
 }
 /*
 void Paris::findKey(){

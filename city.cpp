@@ -17,8 +17,8 @@ City::City(QString name, int playerPosX, int playerPosY, int playerStep, int lev
 
     _player = new Player(playerPosX, playerPosY, playerStep);
     _player->setLevelNumber(level_number);
-    _scene->addItem(_player);
-    _scene->addItem(_player->getFakePlayer());
+    /*_scene->addItem(_player);
+    _scene->addItem(_player->getFakePlayer());*/
 }
 
 QGraphicsScene * City::getScene()
