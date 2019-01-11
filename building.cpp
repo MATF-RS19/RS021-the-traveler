@@ -47,7 +47,7 @@ void Building::mousePressEvent(QGraphicsSceneMouseEvent *event){
     }
     else if(_name == "Notre Dame"){
         ParisBuildingWindow * notreDameInterior = new ParisBuildingWindow();
-        notreDameInterior->arrangeScene("The Notre Dame cathedral is widely considered to be one of the finest examples of French Gothic architecture.");
+        notreDameInterior->arrangeScene(":/text/text/NotreDame.txt", ":/images/images/paris_notre_dame_interior2.jpg");
         notreDameInterior->_buildingView->show();
     }
 }

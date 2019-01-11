@@ -14,7 +14,9 @@ private slots:
 public:
 
     ParisBuildingWindow();
-    void arrangeScene(QString text);
+    void arrangeScene(QString textPath, QString imagePath);
+    void setBackgraundImage(QString path);
+    void readAndWriteText(QString fileName, QString imagePath);
 
     QPushButton *_btnExitBuilding;
     QGraphicsScene *_buildingScene;
