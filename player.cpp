@@ -91,9 +91,10 @@ void Player::keyPressEvent(QKeyEvent *event){
             //qDebug() << "***** level_number: " << level_number;
             if(level_number == 0){
                 if (pos().x() + 60 >= 900){
-                    //qDebug() << "kraaaaj";
+                    qDebug() << "kraaaaj";
                     level_number = 1;
                     //qDebug() << level_number;
+                    qDebug() << "pobegao je zloci";
                     emit escapedEvilObjects(level_number);
                 }
             }

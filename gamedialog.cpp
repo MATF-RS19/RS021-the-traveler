@@ -20,9 +20,17 @@ GameDialog::GameDialog(QWidget *parent) :
     ui->view->show();
     ui->view->setFocus();
     game->start(0);
+
+    connect(game, SIGNAL(finishedGame()), this, SLOT(finished()));
+
 }
 
 GameDialog::~GameDialog()
 {
     delete ui;
+}
+
+void GameDialog::finished()
+{
+    this->close();
 }

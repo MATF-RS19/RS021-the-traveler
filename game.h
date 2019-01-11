@@ -25,11 +25,6 @@ public:
     ~Game();
     void start(int level);
 
-    int getLevel() const;
-
-    Paris *paris;
-    Tokyo *tokyo;
-
     void loadNextLevel();
 
 /* goToNextLevel je slot koji prihvata signal o zavrsetku jednog nivoa i prelazi na naredni nivo koji mu se prosledjuje kao parametar. */
@@ -44,6 +39,8 @@ private:
     Player * _player;
 
     int _level;
+signals:
+    void finishedGame();
 };
 
 

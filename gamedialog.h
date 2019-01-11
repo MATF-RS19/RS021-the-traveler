@@ -15,6 +15,9 @@ public:
     explicit GameDialog(QWidget *parent = nullptr);
     ~GameDialog();
 
+public slots:
+    void finished();
+
 private:
     Ui::GameDialog *ui;
 };
