@@ -32,6 +32,13 @@ City::~City(){
     }
 }
 
+QList<Building *> City::getListOfBuildings() const
+{
+    return _listOfBuildings;
+}
+
+
+
     /*
      * izmenjen metod za postavljanje pozadine
      * jer prethodni nije imao mogucnost skaliranja slike
@@ -71,13 +78,13 @@ bool City::ifFinished()
     return _finished;
 }*/
 
-void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings){
-
+void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings, Player * player){
+    _player = player;
     setCityDimensions(jsonObj["x"].toInt(), jsonObj["y"].toInt(), jsonObj["w"].toInt(), jsonObj["h"].toInt());
     setBackgraundImage(img);
 
     foreach(const QJsonValue &building, buildings) {
-        _scene->addItem(new Building(building["x"].toInt(), building["y"].toInt(),building["w"].toInt(),building["h"].toInt(), building["src"].toString(), building["type"].toInt()));
+        _listOfBuildings.push_back(new Building(building["x"].toInt(), building["y"].toInt(),building["w"].toInt(),building["h"].toInt(), building["src"].toString(), building["type"].toInt()));
     }
 }
 

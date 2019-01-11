@@ -8,8 +8,13 @@
 class Player : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
+    Player();
     Player(int x, int y, int step);
     ~Player();
+
+
+    void setPosition(int xPos, int yPos);
+    void setStep(int step);
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
     bool collisionWithBuildings();

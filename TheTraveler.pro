@@ -40,7 +40,8 @@ SOURCES += \
     globalvars.cpp \
     settingsdialog.cpp \
     myqfile.cpp \
-    paris_utility.cpp
+    paris_utility.cpp \
+    gamedialog.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -56,11 +57,13 @@ HEADERS += \
     globalvars.h \
     settingsdialog.h \
     myqfile.h \
-    paris_utility.h
+    paris_utility.h \
+    gamedialog.h
 
 FORMS += \
         mainmenuwindow.ui \
-    settingsdialog.ui
+    settingsdialog.ui \
+    gamedialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

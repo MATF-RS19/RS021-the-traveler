@@ -16,11 +16,13 @@ public:
     QGraphicsScene * getScene();
     ~City();
 
+    QList <Building *> getListOfBuildings() const;
+
     void setBackgraundImage(QString path);
     void setCityDimensions(int x, int y, int w, int h);
 
 
-    void buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings);
+    void buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings, Player * player);
     virtual void buildSpecial(QJsonObject &json) = 0;
 
     QString getName();
@@ -33,12 +35,13 @@ public:
 
 protected:
     QGraphicsScene *_scene;
-    QList<Building*> listOfBuildings;
+    QList<Building*> _listOfBuildings;
    // QList<Evil*> listOfEvils;
     QString _name;
     bool _finished;
-public:
     Player *_player;
+public:
+    //Player *_player;
     int _level_number;
 };
 

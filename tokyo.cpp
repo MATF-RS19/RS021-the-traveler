@@ -20,36 +20,36 @@ void Tokyo::buildSpecial(QJsonObject &json){
 
     //foreach(Building *b, listOfBuildings) _scene->addItem(b);
 
-    for (int i=0; i < listOfBuildings.size(); i++)
+    /*for (int i=0; i < listOfBuildings.size(); i++)
     {
         qDebug() << i;
-    }
+    }*/
     // _scene->addItem(listOfBuildings[12]);
 
     //********************************************************************************
-
+    /*
     listOfEvils.append(new Evil(500, 250));
     _scene->addItem(listOfEvils[0]);
 
     if (evil_flag == 1) {
         qDebug() << "fsdfdsf";
-    }
+    }*/
 
     /*
     evil = new Evil(400,100);
     _scene->addItem(evil);
 */
 
-    Player *pl = new Player(250, 230, 20);
+    /*Player *pl = new Player(250, 230, 20);
 
 
     Bullet *bullet = new Bullet(pl->getX(), pl->getY());
-    _scene->addItem(bullet);
-
+    _scene->addItem(bullet);*/
+    /*
     QTimer *timer = new QTimer(this);
     QObject::connect(timer, SIGNAL(timeout()), _scene, SLOT(advance()));
     timer->start(50);
-
+*/
     /*
     QTimer *timer2 = new QTimer(this);
 

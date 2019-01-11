@@ -8,6 +8,7 @@
 #include <QList>
 #include <QDialog>
 #include <QMessageBox>
+#include "gamedialog.h"
 
 
 #include "game.h"
@@ -161,12 +162,14 @@ void MainMenuWindow::on_play_clicked()
         QObject::connect(myButton,&QPushButton::pressed,[](){qDebug("Ok is clicked!"); });
         int ret = msgBoxAlert.exec();
     }else {
-        ui->stackedWidget->setCurrentIndex(3);
+        /*ui->stackedWidget->setCurrentIndex(3);
         Game *game = new Game();
-        game->start();
+        game->start();*/
         music->stop();
-        close();
-
+        //close();
+        GameDialog * gameDialog = new GameDialog(this);
+        gameDialog->setModal(true);
+        gameDialog->exec();
 }
 }
 void MainMenuWindow::on_controls_clicked()
