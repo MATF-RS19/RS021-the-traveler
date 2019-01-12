@@ -37,6 +37,8 @@ public:
 
     void on_play_toggled(bool checked);
 
+    void on_actionHow_to_play_triggered();
+
 private:
     Ui::MainMenuWindow *ui;
     void setWindowCenter(double widthCoef, double heightCoef);

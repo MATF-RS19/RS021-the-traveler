@@ -16,38 +16,30 @@ public:
     QGraphicsScene * getScene();
     ~City();
 
-    QList <Building *> getListOfBuildings() const;
-
     void setBackgraundImage(QString path);
     void setCityDimensions(int x, int y, int w, int h);
 
 
-    void buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings, Player * player);
+    void buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings);
     virtual void buildSpecial(QJsonObject &json) = 0;
 
     QString getName();
     Player* getPlayer();
 
     /*extern*/ QList<Evil*> listOfEvils;
+
     bool setFinished(bool val);
 
 
-public slots:
-    void callNextLevel(int level);
-signals:
-    void goToNextLevel(int level);
-
 protected:
     QGraphicsScene *_scene;
-    QList<Building*> _listOfBuildings;
+    QList<Building*> listOfBuildings;
    // QList<Evil*> listOfEvils;
     QString _name;
     bool _finished;
-    Player *_player;
 public:
-    //Player *_player;
+    Player *_player;
     int _level_number;
-
 };
 
 #endif // CITY_H

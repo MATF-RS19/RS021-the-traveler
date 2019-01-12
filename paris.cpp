@@ -9,7 +9,7 @@
 
 extern FinalTest *testParis;
 
-void Paris::buildSpecial(QJsonObject &json) {/*
+void Paris::buildSpecial(QJsonObject &json) {
 
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -19,10 +19,10 @@ void Paris::buildSpecial(QJsonObject &json) {/*
         foreach(const QJsonValue &street, streets) {
             makeStreet(street["src"].toString(), street["sx"].toInt(), street["sy"].toInt(),
                                                  street["px"].toInt(), street["py"].toInt());
-        }*/
+        }
 
         /* Postavljaju se zgrade */
-       /* QJsonObject eiffelObj =  json["eiffel"].toObject();
+        QJsonObject eiffelObj =  json["eiffel"].toObject();
         Building *eiffel = new Building(eiffelObj["x"].toInt(), eiffelObj["y"].toInt(),
                                         eiffelObj["w"].toInt(), eiffelObj["h"].toInt(),
                                         eiffelObj["src"].toString(), eiffelObj["type"].toInt());
@@ -51,11 +51,11 @@ void Paris::buildSpecial(QJsonObject &json) {/*
 
 
         connect(testParis, SIGNAL(notifyParis()), this, SLOT(isFinished()));
-*/
+
 }
 
 void Paris::isFinished(){
-    //this->close();
+    this->close();
     qDebug() << "PARIS - isFinished";
 }
 
@@ -114,13 +114,13 @@ void Paris::isFinished(){
 //}
 
 void Paris::makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yPos){
-   /* QGraphicsPixmapItem *street = new QGraphicsPixmapItem();
+    QGraphicsPixmapItem *street = new QGraphicsPixmapItem();
     QPixmap *streetImage = new QPixmap(imgPath);
     *streetImage = streetImage->scaled(xScale, yScale);
     street->setPixmap(*streetImage);
     street->setPos(xPos, yPos);
     street->setZValue(-1);
-    _scene->addItem(street);*/
+    _scene->addItem(street);
 }
 /*
 void Paris::findKey(){

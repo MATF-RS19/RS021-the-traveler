@@ -40,7 +40,7 @@ void Building::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidge
 
 void Building::mousePressEvent(QGraphicsSceneMouseEvent *event){
 
-    /*if(_name == "Eiffel"){
+    if(_name == "Eiffel"){
         testParis = new FinalTest();
         testParis->makeTest();
 
@@ -49,7 +49,7 @@ void Building::mousePressEvent(QGraphicsSceneMouseEvent *event){
         ParisBuildingWindow * notreDameInterior = new ParisBuildingWindow();
         notreDameInterior->arrangeScene(":/text/text/NotreDame.txt", ":/images/images/paris_notre_dame_interior2.jpg");
         notreDameInterior->_buildingView->show();
-    }*/
+    }
 }
 
 void Building::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)

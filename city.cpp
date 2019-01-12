@@ -17,8 +17,8 @@ City::City(QString name, int playerPosX, int playerPosY, int playerStep, int lev
 
     _player = new Player(playerPosX, playerPosY, playerStep);
     _player->setLevelNumber(level_number);
-    /*_scene->addItem(_player);
-    _scene->addItem(_player->getFakePlayer());*/
+    _scene->addItem(_player);
+    _scene->addItem(_player->getFakePlayer());
 }
 
 QGraphicsScene * City::getScene()
@@ -31,13 +31,6 @@ City::~City(){
         this->close();
     }
 }
-
-QList<Building *> City::getListOfBuildings() const
-{
-    return _listOfBuildings;
-}
-
-
 
     /*
      * izmenjen metod za postavljanje pozadine
@@ -78,22 +71,17 @@ bool City::ifFinished()
     return _finished;
 }*/
 
-void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings, Player * player){
-    _player = player;
+void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings){
+
     setCityDimensions(jsonObj["x"].toInt(), jsonObj["y"].toInt(), jsonObj["w"].toInt(), jsonObj["h"].toInt());
     setBackgraundImage(img);
 
     foreach(const QJsonValue &building, buildings) {
-        _listOfBuildings.push_back(new Building(building["x"].toInt(), building["y"].toInt(),building["w"].toInt(),building["h"].toInt(), building["src"].toString(), building["type"].toInt()));
+        _scene->addItem(new Building(building["x"].toInt(), building["y"].toInt(),building["w"].toInt(),building["h"].toInt(), building["src"].toString(), building["type"].toInt()));
     }
-
-    connect(_player, SIGNAL(escapedEvilObjects(int)), this, SLOT(callNextLevel(int)));
 }
 
 bool City::setFinished(bool val){
     _finished = val;
 }
 
-void City::callNextLevel(int level) {
-    emit goToNextLevel(level);
-}

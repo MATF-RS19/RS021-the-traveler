@@ -35,35 +35,9 @@ Player::Player(int x, int y, int step){
 
 }
 
-Player::Player(){
-    this->setPixmap(_left);
-
-    // Da bi objekat mogao da odreaguje na neki event mora da se fokusira. Ovo nam je potrebno za kretanje.
-    this->setFlag(QGraphicsItem::ItemIsFocusable);
-    this->setFocus();
-
-    _fakePlayer = new QGraphicsPixmapItem;
-    _fakePlayer->setPixmap(QPixmap(":/images/images/fake-player.png"));
-    _fakePlayer->setScale(0.6);
-
-}
 Player::~Player(){
 
 }
-
-void Player::setPosition(int xPos, int yPos)
-{
-    _xPos = xPos;
-    _yPos = yPos;
-    this->setPos(_xPos,_yPos);
-    _fakePlayer->setPos(_xPos,_yPos);
-}
-
-void Player::setStep(int step)
-{
-    _step = step;
-}
-
 
 void Player::keyPressEvent(QKeyEvent *event){
 
@@ -89,12 +63,13 @@ void Player::keyPressEvent(QKeyEvent *event){
             /* Ako se plejer nalazi na nivou 0, tj u Tokiu, i uspeo je da popegne Evel objektima i dodje do desne strane
              * prozora, onda se emituje signal za prelazak u naredni nivo. */
             //qDebug() << "***** level_number: " << level_number;
-            //if(level_number == 0){
+            if(level_number == 0){
                 if (pos().x() + 60 >= 900){
+                    //qDebug() << "kraaaaj";
                     level_number = 1;
                     //qDebug() << level_number;
                     emit escapedEvilObjects(level_number);
-                //}
+                }
             }
         }
     }

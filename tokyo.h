@@ -23,7 +23,7 @@ private:
    // Evil * evil;
     //void buildCity();
     //bool finished;
-    //Player *player = new Player(250, 230);
+//    Player *player = new Player(250, 230);
 };
 
 #endif // TOKYO_H

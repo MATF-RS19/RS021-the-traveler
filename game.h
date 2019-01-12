@@ -6,8 +6,7 @@
 #include "tokyo.h"
 #include "paris.h"
 #include <QMediaPlayer>
-#include <QString>
-#include "player.h"
+#include <QMediaPlaylist>
 
 extern int change_now;
 
@@ -17,13 +16,15 @@ extern int change_now;
     i metod kojim se pokrece igra u tim gradovima.
 */
 
-class Game : public QGraphicsScene {
+class Game : public QObject {
     Q_OBJECT
 
 public:
-    Game(QGraphicsView * view);
-    ~Game();
-    void start(int level);
+    Game();
+    void start();
+
+    Paris *paris;
+    Tokyo *tokyo;
 
     void loadNextLevel();
 
@@ -32,15 +33,9 @@ public slots:
     void goToNextLevel(int level);
 
 private:
-    void setBackground(const QString img);
-    QGraphicsView * _view;
     QMediaPlayer * _music;
-    QList<City*> _listOfCities;
-    Player * _player;
-
-    int _level;
-signals:
-    void finishedGame();
+    QMediaPlaylist *_playlist = new QMediaPlaylist();
+    QList<City*> listOfCities;
 };
 
 
