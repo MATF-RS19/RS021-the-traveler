@@ -50,6 +50,11 @@ void Building::mousePressEvent(QGraphicsSceneMouseEvent *event){
         notreDameInterior->arrangeScene(":/text/text/NotreDame.txt", ":/images/images/paris_notre_dame_interior2.jpg");
         notreDameInterior->_buildingView->show();
     }
+    else if(_name == "Triumphal arch"){
+        ParisBuildingWindow * triumphalArchInterior = new ParisBuildingWindow();
+        triumphalArchInterior->arrangeScene(":/text/text/TriumphalArch.txt", ":/images/images/paris_triumph2.jpg");
+        triumphalArchInterior->_buildingView->show();
+    }
 }
 
 void Building::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
@@ -91,17 +96,18 @@ void Building::advance(int step) {
         for(int i = 0; i < n; ++i){
             if((typeid(*(colliding_items3[i])) == typeid(Player))){
                 //colliding_items3.clear();
-                qDebug() << "lalalalalala";
+                //qDebug() << "lalalalalala";
                 QMessageBox msgBox;
-                msgBox.setText("The document has been modified.");
-                msgBox.setInformativeText("The box just hit you!");
+                //msgBox.setText("The document has been modified.");
+                msgBox.setInformativeText("Gameover!");
                 //msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
                 //msgBox.setDefaultButton(QMessageBox::Save);
-                QPushButton* myButton =new QPushButton("Click ME!");
+                QPushButton* myButton =new QPushButton("Exit game!");
                 msgBox.addButton(myButton ,QMessageBox::AcceptRole);
-                QObject::connect(myButton,&QPushButton::pressed,[](){ change_now = 1; qDebug("They pressed me!"); QApplication::exit(); });
-                int ret = msgBox.exec();               // QMessageBox::information(this, tr("title"), tr("message"));
-                }
+                QObject::connect(myButton,&QPushButton::pressed,[](){ change_now = 1; QApplication::exit(); });
+                //int ret = msgBox.exec();               // QMessageBox::information(this, tr("title"), tr("message"));
+                msgBox.exec();
+            }
         }
         update();
     }
