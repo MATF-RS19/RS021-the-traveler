@@ -2,5 +2,6 @@
     <qresource prefix="/json">
         <file>Paris.json</file>
         <file>Tokyo.json</file>
+        <file>London.json</file>
     </qresource>
 </RCC>

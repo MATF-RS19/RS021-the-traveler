@@ -5,6 +5,7 @@
 #include <iterator>
 #include "player.h"
 #include "myqfile.h"
+#include "london.h"
 
 #include <QMediaPlayer>
 #include <QJsonArray>
@@ -29,7 +30,9 @@ Game::Game(){
 
     Paris *paris = new Paris();
     Tokyo *tokyo = new Tokyo();
+    London * london = new London();
     listOfCities.push_back(tokyo);
+    listOfCities.push_back(london);
     listOfCities.push_back(paris);
 }
 
@@ -56,10 +59,10 @@ void Game::start(int level){
 }
 
 void Game::goToNextLevel(int level){
-    for(QGraphicsItem *item: listOfCities[level]->items()) {
-        delete item;
+    //for(QGraphicsItem *item: listOfCities[level]->items()) {
+        //delete item;
         listOfCities[level]->close();
-    }
+    //}
 
 
     level += 1;

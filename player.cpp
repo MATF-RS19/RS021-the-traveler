@@ -9,6 +9,7 @@
 #include <QGraphicsView>
 #include <QGraphicsItem>
 #include "bullet.h"
+#include "tee.h"
 
     /*
      * DIMENZIJE PLAYERA:
@@ -47,6 +48,7 @@ void Player::keyPressEvent(QKeyEvent *event){
             if (pos().x() > 0) {
                 setPos(x() - _step, y());
                 this->setPixmap(_left);
+                collisionWithTees();
             }
         }
     }
@@ -57,6 +59,7 @@ void Player::keyPressEvent(QKeyEvent *event){
             if (pos().x() + 60 < 900) {
                 this->setPixmap(_right);
                 setPos(x() + _step, y());
+                collisionWithTees();
             }
 
             /*
@@ -76,6 +79,7 @@ void Player::keyPressEvent(QKeyEvent *event){
             if (pos().y() > 0) {
                 this->setPixmap(_left);
                 setPos(x(), y() - _step);
+                collisionWithTees();
             }
         }
     }
@@ -86,6 +90,7 @@ void Player::keyPressEvent(QKeyEvent *event){
             if (pos().y() + 110 < 599) {
                 this->setPixmap(_right);
                 setPos(x(), y() + _step);
+                collisionWithTees();
             }
         }
     }
@@ -117,7 +122,17 @@ int Player::getY(){
     return _yPos;
 }
 
-bool Player::collisionWithBuildings(){
+void Player::collisionWithTees() {
+    QList<QGraphicsItem*> colliding_items = _fakePlayer->collidingItems();
+    int n = colliding_items.size();
+    for(int i = 0; i < n; ++i){
+        if((typeid(*(colliding_items[i])) == typeid(Tee))) {
+            emit takeTee(colliding_items[i]);
+        }
+    }
+}
+
+bool Player::collisionWithBuildings() {
     QList<QGraphicsItem*> colliding_items = _fakePlayer->collidingItems();
     int n = colliding_items.size();
     for(int i = 0; i < n; ++i){

@@ -58,6 +58,9 @@ void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJso
     setCityDimensions(jsonObj["x"].toInt(), jsonObj["y"].toInt(), jsonObj["w"].toInt(), jsonObj["h"].toInt());
     setBackgraundImage(img);
 
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     foreach(const QJsonValue &building, buildings) {
         _scene->addItem(new Building(building["x"].toInt(), building["y"].toInt(),building["w"].toInt(),building["h"].toInt(), building["src"].toString(), building["type"].toInt()));
     }
@@ -69,4 +72,12 @@ void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJso
 
 void City::finished() {
     emit goToNextLevel(this->getLevel());
+}
+
+void City::removeTee(QGraphicsItem *item) {
+    _scene->removeItem(item);
+    numOfTees--;
+
+    if(numOfTees == 0)
+        emit goToNextLevel(_level_number);
 }

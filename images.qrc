@@ -45,5 +45,7 @@
         <file>images/sushi2.png</file>
         <file>images/paris_img.png</file>
         <file>images/tokyo_img.png</file>
+        <file>images/London_background_6.jpg</file>
+        <file>images/london_tea.png</file>
     </qresource>
 </RCC>

@@ -20,6 +20,7 @@ public:
     void keyReleaseEvent(QKeyEvent *event);
     bool collisionWithBuildings();
     bool collisionWithEvil();
+    void collisionWithTees();
     void checkLifes();
     QGraphicsPixmapItem *getFakePlayer();
 
@@ -35,6 +36,7 @@ public:
 */
 signals:
     void escapedEvilObjects();
+    void takeTee(QGraphicsItem *);
 
 private:
     int _step;

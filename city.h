@@ -29,6 +29,7 @@ public:
 
 public slots:
     void finished();
+    void removeTee(QGraphicsItem *item);
 
 signals:
     void goToNextLevel(int level);
@@ -40,6 +41,7 @@ protected:
     QList<Building*> listOfBuildings;
     QString _name;
     QList<Evil*> listOfEvils;
+    int numOfTees = 2;
 
     void setBackgraundImage(QString path);
     void setCityDimensions(int x, int y, int w, int h);

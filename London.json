@@ -1,0 +1,13 @@
+{
+"name" : "London",
+"playerPos" : {"x" : 250, "y" : 230},
+"background" : ":/images/images/London_background_6.jpg",
+"dimensions" : {"x" : 0, "y" : 0, "w" : 900, "h" : 599},
+"special" : {
+        "tees" : [
+                  {"x" : 320, "y" : 0, "w" : 80, "h" : 80, "src" : ":/images/images/london_tea.png"},
+                 {"x" : 320, "y" : 99, "w" : 80, "h" : 80, "src" : ":/images/images/london_tea.png"}
+    ]
+    }
+}
+
