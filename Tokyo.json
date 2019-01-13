@@ -4,17 +4,16 @@
 "background" : ":/images/images/chinese-pattern-background.jpg",
 "dimensions" : {"x" : 0, "y" : 0, "w" : 900, "h" : 599},
 "buildings" : [
-    {"x" : 0, "y" : 0, "w" : 80, "h" : 80, "src" : ":/images/images/tokyo_grass.png", "type" : 1},
+    {"x" : 0, "y" : 0, "w" : 80, "h" : 80, "src" : ":/images/images/Building04.png", "type" : 1},
     {"x" : 80, "y" : 0, "w" : 80, "h" : 80, "src" : ":/images/images/tokyo_grass.png", "type" : 1},
-    {"x" : 160, "y" : 0, "w" : 80, "h" : 80, "src" : ":/images/images/tokyo_grass.png", "type" : 1},
+    {"x" : 160, "y" : 0, "w" : 80, "h" : 80, "src" : ":/images/images/Building01.png", "type" : 1},
     {"x" : 240, "y" : 0, "w" : 80, "h" : 80, "src" : ":/images/images/tokyo_grass.png", "type" : 1},
     {"x" : 320, "y" : 0, "w" : 80, "h" : 80 , "src" : ":/images/images/tokyo_grass.png", "type" : 1},
-    {"x" : 400, "y" : 0, "w" : 80, "h" : 80 , "src" : ":/images/images/tokyo_grass.png", "type" : 1},
-    {"x" : 40, "y" : 250, "w" : 80, "h" : 80, "src" : ":/images/images/tokyo_grass.png", "type" : 2},
+    {"x" : 40, "y" : 250, "w" : 80, "h" : 80, "src" : ":/images/images/Building01.png", "type" : 2},
     {"x" : 120, "y" : 250, "w" : 80, "h" : 80, "src" : ":/images/images/tokyo_grass.png", "type" : 2},
     {"x" : 200, "y" : 250, "w" : 80, "h" : 80, "src" : ":/images/images/tokyo_grass.png", "type" : 2},
     {"x" : 280, "y" : 250, "w" : 80, "h" : 80, "src" : ":/images/images/tokyo_grass.png", "type" : 2},
-    {"x" : 360, "y" : 250, "w" : 80, "h" : 80 , "src" : ":/images/images/tokyo_grass.png", "type" : 2}
+    {"x" : 360, "y" : 250, "w" : 70, "h" : 70 , "src" : ":/images/images/Building03.png", "type" : 3}
     ],
     "music" : "qrc:/sounds/music.mp3",
 

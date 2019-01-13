@@ -10,7 +10,6 @@
 #include <QGraphicsItem>
 #include "bullet.h"
 
-extern int a;
     /*
      * DIMENZIJE PLAYERA:
      * 110 x 60
@@ -60,17 +59,14 @@ void Player::keyPressEvent(QKeyEvent *event){
                 setPos(x() + _step, y());
             }
 
-            /* Ako se plejer nalazi na nivou 0, tj u Tokiu, i uspeo je da popegne Evel objektima i dodje do desne strane
-             * prozora, onda se emituje signal za prelazak u naredni nivo. */
-            //qDebug() << "***** level_number: " << level_number;
-            if(level_number == 0){
-                if (pos().x() + 60 >= 900 && pos().y() > 400){  // donji desni ugao
-                    //qDebug() << "kraaaaj";
-                    level_number = 1;
-                    //qDebug() << level_number;
-                    emit escapedEvilObjects(level_number);
+            /*
+             * Ako se plejer nalazi na nivou 0, tj u Tokiu,
+             * i uspeo je da popegne Evel objektima i dodje do desne strane
+             * prozora, onda se emituje signal za prelazak u naredni nivo.
+             */
+                if (pos().x() + 60 >= 900 && pos().y() > 400 && food >= 4){  // donji desni ugao
+                    emit escapedEvilObjects();
                 }
-            }
         }
     }
     else if(event->key() == Qt::Key_Up){
@@ -121,11 +117,6 @@ int Player::getY(){
     return _yPos;
 }
 
-void Player::setLevelNumber(int val){
-    level_number = val;
-}
-
-
 bool Player::collisionWithBuildings(){
     QList<QGraphicsItem*> colliding_items = _fakePlayer->collidingItems();
     int n = colliding_items.size();
@@ -150,8 +141,10 @@ bool Player::collisionWithEvil(){
 
 void Player::checkLifes() {
     if (collisionWithEvil() == true and lifes > 0) {
-        this->setOpacity(this->opacity() - 0.2);
-        lifes = lifes - 1;
+        colliding_items2[0]->setPos(-200, -200);
+        food ++;
+        //this->setOpacity(this->opacity() - 0.2);
+        //lifes = lifes - 1;
 
 // ne dirajte ovo! :D
         //   evil_flag = 1;
@@ -160,21 +153,9 @@ void Player::checkLifes() {
 
     }
 
-    if (lifes <= 0) {
-        a = 1 +a;
-        //qDebug() << a;
-       // Game::listOfCities[1]->show();
 
-    }
 
 }
-/*
-void Player::collision() {
-    if(collisionWithBuildings() == true or collisionWithEvil() == true){
-        _collision_detected = 1;
-        qDebug() << _collision_detected;
-    }
-}
-*/
+
 
 

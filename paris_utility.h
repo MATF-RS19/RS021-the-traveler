@@ -30,16 +30,29 @@ class FinalTest : public QObject {
 public:
     FinalTest();
     void makeTest();
-    void addQuestionAndAnswersToScene(QLabel &q, QPushButton &a1, QPushButton &a2, QPushButton &a3);
+    void addQuestionAndAnswersToScene(QLabel *q, QPushButton *a1, QPushButton *a2, QPushButton *a3);
+    void disableButtons(QPushButton *a1, QPushButton *a2, QPushButton *a3);
 
-public slots:
-    void testSolvedCorrectly();
-    bool notifyParis();
+private slots:
+    void answeredQuestion1True();
+    void answeredQuestion2True();
+    void answeredQuestion3True();
+    void answeredQuestion4True();
+
+    void answeredQuestion1False();
+    void answeredQuestion2False();
+    void answeredQuestion3False();
+    void answeredQuestion4False();
+
+    void finishedTest();
 
 private:
 
     bool _testCorrect = false;
     ParisBuildingWindow *_testWindow;
+
+    int _numOfQuestions = 4;
+    int _numOfCorrectlyAnswered = 0;
 
     QPushButton *_btn1Correct;
     QPushButton *_btn1False1;
@@ -52,6 +65,10 @@ private:
     QPushButton *_btn3Correct;
     QPushButton *_btn3False1;
     QPushButton *_btn3False2;
+
+    QPushButton *_btn4Correct;
+    QPushButton *_btn4False1;
+    QPushButton *_btn4False2;
 };
 
 #endif // PARIS_UTILITY_H

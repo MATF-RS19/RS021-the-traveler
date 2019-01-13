@@ -7,6 +7,12 @@
 #include "paris_utility.h"
 #include "player.h"
 
+/*
+ * Ova klasa sluzi za pravljenje zgrada
+ * koje se koriste u svakom nivou
+ *
+ */
+
 extern int change_now;
 extern QString nameText;
 
@@ -15,7 +21,6 @@ class Building : public QObject, public QGraphicsItem{
 public:
 
     Building(int xPos, int yPos, int width, int height, QString img, int bType);
-    ~Building();
 
     QRectF boundingRect() const override;
 
@@ -28,11 +33,8 @@ public:
 
     void setName(QString name);
 
-    void up();
-    void down();
-
+private:
     void advance(int step) override;
-
 
 private:
     QString _img;
@@ -44,6 +46,7 @@ private:
     Player *player = new Player(250, 230, 20);
     QList<QGraphicsItem*> listica;
     int _bType;
+    int _move_by = 0;
 
 };
 

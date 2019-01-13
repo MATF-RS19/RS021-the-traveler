@@ -21,8 +21,8 @@ QRectF Evil::boundingRect() const
 void Evil::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     // crtanje pravougaonika
-    painter->drawRect(0,0,m_evilSize,m_evilSize);
-    QPixmap pixmap(":/images/images/fire.png");
+    //painter->drawRect(0,0,m_evilSize,m_evilSize);
+    QPixmap pixmap(":/images/images/sushi2.png");
 
     painter->drawPixmap(0, 0, 80, 80, pixmap);
 

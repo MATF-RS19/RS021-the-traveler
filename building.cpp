@@ -7,7 +7,8 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QApplication>
-
+#include <math.h>
+#include <QDebug>
 FinalTest *testParis;
 
 
@@ -17,11 +18,6 @@ Building::Building(int xPos, int yPos, int width, int height, QString img, int t
      setPos(xPos, yPos);
 }
 
-Building::~Building(){
-
-}
-
-
 QRectF Building::boundingRect() const
 {
     return QRectF(_xPos,_yPos,_width,_height);
@@ -30,7 +26,7 @@ QRectF Building::boundingRect() const
 void Building::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
     // crtanje pravougaonika
-    painter->drawRect(_xPos,_yPos,_width,_height);
+    //painter->drawRect(_xPos,_yPos,_width,_height);
 
     // slika gradjevine (trave...)
     QPixmap pixmap(_img);
@@ -90,6 +86,14 @@ void Building::advance(int step) {
                 _move_for_up = 0;
         }
 
+        if(_bType == 3){
+            _move_by += 1;
+             float theta = 2.0f * 3.1415926f * float(_move_by) / float(100);// racuna trenutni ugao
+             _xPos = 450 + 70 * cos(theta);
+             _yPos = 80 + 70 * sin(theta);
+             setPos((_xPos), (_yPos));
+
+        }
 
         QList<QGraphicsItem*> colliding_items3 = this->collidingItems();
         int n = colliding_items3.size();
@@ -101,30 +105,9 @@ void Building::advance(int step) {
                 QPushButton* myButton =new QPushButton("Exit game!");
                 msgBox.addButton(myButton ,QMessageBox::AcceptRole);
                 QObject::connect(myButton,&QPushButton::pressed,[](){ change_now = 1; QApplication::exit(); });
-                //int ret = msgBox.exec();               // QMessageBox::information(this, tr("title"), tr("message"));
                 msgBox.exec();
             }
         }
         update();
-    }
-}
-
-void Building::up() {
-    if(_bType != 0){
-        if (_move_for > 0) {
-            _move_for -= 1;
-            setPos(_xPos, _yPos + _move_for);
-
-        }
-    }
-}
-
-void Building::down() {
-    if(_bType != 0){
-        if (_move_for < 500) {
-            _move_for += 1;
-            setPos(_xPos, _yPos + _move_for);
-
-        }
     }
 }

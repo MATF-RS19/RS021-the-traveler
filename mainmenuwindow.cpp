@@ -158,13 +158,13 @@ void MainMenuWindow::on_play_clicked()
         msgBoxAlert.setInformativeText("Enter your name!");
         QPushButton* myButton =new QPushButton("Ok");
         msgBoxAlert.addButton(myButton ,QMessageBox::AcceptRole);
-        QObject::connect(myButton,&QPushButton::pressed,[](){qDebug("Ok is clicked!"); });
+        QObject::connect(myButton,&QPushButton::pressed,[](){ });
         int ret = msgBoxAlert.exec();
     }else {
         ui->stackedWidget->setCurrentIndex(3);
         nameText = ui->lineEditForName->text();
         Game *game = new Game();
-        game->start();
+        game->start(0);
         music->stop();
         close();
 

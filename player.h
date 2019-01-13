@@ -5,6 +5,12 @@
 #include <QKeyEvent>
 #include <QObject>
 
+/*
+ * Ova klasa predstavlja plejera,
+ * u njoj se obradjuje kolizija plejera sa obektima
+ * i kretanje plejera
+ */
+
 class Player : public QObject, public QGraphicsPixmapItem {
     Q_OBJECT
 public:
@@ -20,28 +26,23 @@ public:
     int getX();
     int getY();
 
-    void setLevelNumber(int val);
+    int lifes = 3;
+    int food = 0;
 
 /* escapedEvilObjects je signal koji se emituje kada plejer u prvom nivou uspe da pobegne objektima koji se pomeraju, izbegne Evel objekte i stigne do desne strane ekrana.
  * Game objekat treba da prihvati ovaj signal i da predje na naredni nivo.
  * Signale ne implementiramo posto su to virtualne funkcije koje, kada pozovemo sa emit, prosledjuju slotovima vrednosti svojih parametara.
 */
 signals:
-    void escapedEvilObjects(int level);
+    void escapedEvilObjects();
 
 private:
     int _step;
     int _xPos, _yPos;
     QPixmap _left = QPixmap(":/images/images/left2.png");
     QPixmap _right = QPixmap(":/images/images/right2.png");
-    bool collisionFlag = false;
     QGraphicsPixmapItem* _fakePlayer;
     QList<QGraphicsItem*> colliding_items2;
-    int level_number;
-
-public:
-    int lifes = 3;
-    int _collision_detected = 0;
 };
 
 #endif // PLAYER_H

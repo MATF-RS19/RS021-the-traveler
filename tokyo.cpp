@@ -17,39 +17,20 @@ void Tokyo::buildSpecial(QJsonObject &json){
         qDebug() << i;
     }
 
-    listOfEvils.append(new Evil(500, 250));
+    listOfEvils.append(new Evil(730, 5));
+    listOfEvils.append(new Evil(830, 190));
+    listOfEvils.append(new Evil(750, 350));
+    listOfEvils.append(new Evil(750, 470));
     _scene->addItem(listOfEvils[0]);
-
+    _scene->addItem(listOfEvils[1]);
+    _scene->addItem(listOfEvils[2]);
+    _scene->addItem(listOfEvils[3]);
 
     QTimer *timer = new QTimer(this);
     QObject::connect(timer, SIGNAL(timeout()), _scene, SLOT(advance()));
     timer->start(50);
 
-}
 
-
-bool Tokyo::collisionWithSmth(){
-   /* QList<QGraphicsItem*> colliding_items = _fakePlayer->collidingItems();
-    //qDebug() << colliding_items;
-    int n = colliding_items.size();
-    for(int i = 0; i < n; ++i){
-        if((typeid(*(colliding_items[i])) == typeid(Building))){
-            //colliding_items.clear();
-            return true;
-        }
-    }*/
-    return false;
-}
-
-void Tokyo::update() {
-    /*
-    if(collisionWithBuildings() == true or collisionWithEvil() == true){
-        _collision_detected = 1;
-        qDebug() << _collision_detected;
-
-    }*/
-
-qDebug() << "usao u funkciju";
-update();
+    connect(_player, SIGNAL(escapedEvilObjects()), this, SLOT(finished()));
 
 }

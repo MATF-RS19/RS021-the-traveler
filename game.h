@@ -12,23 +12,21 @@ extern int change_now;
 
 
 /*
-    Ova klasa sadrzi listu gradova koje igrac treba da obidje
-    i metod kojim se pokrece igra u tim gradovima.
-*/
+ * Ova klasa sadrzi listu gradova koje igrac treba da obidje
+ * i metod kojim se pokrece igra u tim gradovima.
+ */
 
 class Game : public QObject {
     Q_OBJECT
 
 public:
     Game();
-    void start();
+    void start(int level);
 
-    Paris *paris;
-    Tokyo *tokyo;
-
-    void loadNextLevel();
-
-/* goToNextLevel je slot koji prihvata signal o zavrsetku jednog nivoa i prelazi na naredni nivo koji mu se prosledjuje kao parametar. */
+/*
+ * goToNextLevel je slot koji prihvata signal o zavrsetku jednog nivoa
+ * i prelazi na naredni nivo koji mu se prosledjuje kao parametar.
+ */
 public slots:
     void goToNextLevel(int level);
 

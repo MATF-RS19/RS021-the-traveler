@@ -8,6 +8,12 @@
 #include <QGraphicsScene>
 #include <QString>
 
+/*
+ * Ovo je apstraktna klasa koja sluzi za pravljenje gradova/ nivoa
+ *
+ */
+
+
 class City : public QGraphicsView {
     Q_OBJECT
 public:
@@ -15,30 +21,28 @@ public:
     QGraphicsScene * getScene();
     ~City();
 
-    void setBackgraundImage(QString path);
-    void setCityDimensions(int x, int y, int w, int h);
-
+    int getLevel();
+    QString getName();
 
     void buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings);
     virtual void buildSpecial(QJsonObject &json) = 0;
 
-    QString getName();
-    Player* getPlayer();
+public slots:
+    void finished();
 
-    /*extern*/ QList<Evil*> listOfEvils;
-
-    bool setFinished(bool val);
-
+signals:
+    void goToNextLevel(int level);
 
 protected:
-    QGraphicsScene *_scene;
-    QList<Building*> listOfBuildings;
-   // QList<Evil*> listOfEvils;
-    QString _name;
-    bool _finished;
-public:
     Player *_player;
     int _level_number;
+    QGraphicsScene *_scene;
+    QList<Building*> listOfBuildings;
+    QString _name;
+    QList<Evil*> listOfEvils;
+
+    void setBackgraundImage(QString path);
+    void setCityDimensions(int x, int y, int w, int h);
 };
 
 #endif // CITY_H

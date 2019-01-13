@@ -26,9 +26,6 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     setWindowTitle("Settings");
     setBackgroundImage(":/images/images/dialog_bckg.jpg");
 
-    //QPixmap pix(":/images/images/main.png");
-    //ui->label->setPixmap(pix);
-
     pix.append(new QPixmap(":/images/images/tokyo_img.png"));
     pix.append(new QPixmap(":/images/images/paris_img.png"));
     pix.append(new QPixmap(":/images/images/left2.png"));
@@ -41,10 +38,10 @@ ui->radioButton->setStyleSheet("background-color: #C2D7F1");
 ui->radioButton_2->setText("on");
 ui->radioButton_2 ->setStyleSheet("background-color: #C2D7F1");
 
-ui->pushButton->setStyleSheet("border-image:url(:/buttons/buttons/back.png);");
+ui->pushButton->setStyleSheet("border-image:url(:/buttons/buttons/next.png);");
 ui->pushButton->setFixedSize(30,30);
 ui->pushButton->setText("");
-ui->pushButton_2->setStyleSheet("border-image:url(:/buttons/buttons/next.png);");
+ui->pushButton_2->setStyleSheet("border-image:url(:/buttons/buttons/back.png);");
 ui->pushButton_2->setFixedSize(30,30);
 ui->pushButton_2->setText("");
 
@@ -104,21 +101,17 @@ void SettingsDialog::on_pushButton_2_clicked()
 
 void SettingsDialog::on_radioButton_clicked()
 {
-    //first_player_img = ":/images/images/left2.png";
     music->stop();
 
 }
 
 void SettingsDialog::on_radioButton_2_clicked()
 {
-   // music->setMedia(QUrl("qrc:/sounds/bckg_music.mp3"));
     music->play();
 }
 
 void SettingsDialog::setBackgroundImage(QString imagePath)
 {
-    // ui->stackedWidget->setAutoFillBackground(true);
-
     QPixmap bkgnd(imagePath);
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;

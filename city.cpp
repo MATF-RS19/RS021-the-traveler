@@ -8,15 +8,11 @@
 #include <QJsonObject>
 
 City::City(QString name, int playerPosX, int playerPosY, int playerStep, int level_number)
-    :_level_number(level_number) {
-    _name = name;
+    :_name (name), _level_number(level_number) {
     _scene = new QGraphicsScene();
     setScene(_scene);
 
-    _finished = false;
-
     _player = new Player(playerPosX, playerPosY, playerStep);
-    _player->setLevelNumber(level_number);
     _scene->addItem(_player);
     _scene->addItem(_player->getFakePlayer());
 }
@@ -27,20 +23,10 @@ QGraphicsScene * City::getScene()
 }
 
 City::~City(){
-    if(_finished){
-        this->close();
-    }
+
 }
 
-    /*
-     * izmenjen metod za postavljanje pozadine
-     * jer prethodni nije imao mogucnost skaliranja slike
-     * (prethodni kod je zakomentarisan)
-     */
-
 void City::setBackgraundImage(QString path){
-   // setBackgroundBrush(QBrush(QImage(path)));
-
     QImage *image = new QImage(path);
     QBrush *brush = new QBrush(image->scaled(this->size(),Qt::KeepAspectRatio,  Qt::SmoothTransformation));
     setBackgroundBrush(*brush);
@@ -62,14 +48,10 @@ QString City::getName() {
     return _name;
 }
 
-Player *City::getPlayer(){
-    return _player;
-}
-/*
-bool City::ifFinished()
+int City::getLevel()
 {
-    return _finished;
-}*/
+    return _level_number;
+}
 
 void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJsonArray &buildings){
 
@@ -81,7 +63,10 @@ void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJso
     }
 }
 
-bool City::setFinished(bool val){
-    _finished = val;
-}
+/*
+ * prelazak na sledeci nivo
+ */
 
+void City::finished() {
+    emit goToNextLevel(this->getLevel());
+}

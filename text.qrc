@@ -2,5 +2,6 @@
     <qresource prefix="/text">
         <file>text/NotreDame.txt</file>
         <file>text/TriumphalArch.txt</file>
+        <file>text/AboutGame.txt</file>
     </qresource>
 </RCC>

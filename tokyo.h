@@ -11,15 +11,13 @@
 class Tokyo : public City {
 public:
     Tokyo()
-        :City("Tokyo", 250, 230, 20, 0)
+        :City("Tokyo", 10, 450, 20, 0)
     {}
 
     void buildSpecial(QJsonObject &json);
 
-    void update();
-    bool collisionWithSmth();
-private:
-    bool restart_level = false;
+signals:
+    void goToNextLevel(int level);
 };
 
 #endif // TOKYO_H

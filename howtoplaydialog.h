@@ -17,6 +17,8 @@ public:
 
 private:
     Ui::HowToPlayDialog *ui;
+    void setBackgroundImage(QString imagePath);
+
 };
 
 #endif // HOWTOPLAYDIALOG_H
