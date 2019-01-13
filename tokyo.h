@@ -16,8 +16,11 @@ public:
 
     void buildSpecial(QJsonObject &json);
 
+
     void update();
     bool collisionWithSmth();
+signals:
+    void goToNextLevel(int level);
 private:
     bool restart_level = false;
 };

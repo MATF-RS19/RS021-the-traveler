@@ -21,7 +21,7 @@ class Game : public QObject {
 
 public:
     Game();
-    void start();
+    void start(int level);
 
     Paris *paris;
     Tokyo *tokyo;

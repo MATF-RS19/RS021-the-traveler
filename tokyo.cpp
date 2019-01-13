@@ -25,6 +25,9 @@ void Tokyo::buildSpecial(QJsonObject &json){
     QObject::connect(timer, SIGNAL(timeout()), _scene, SLOT(advance()));
     timer->start(50);
 
+
+    connect(_player, SIGNAL(escapedEvilObjects()), this, SLOT(finished()));
+
 }
 
 

@@ -68,7 +68,8 @@ void Player::keyPressEvent(QKeyEvent *event){
                     //qDebug() << "kraaaaj";
                     level_number = 1;
                     //qDebug() << level_number;
-                    emit escapedEvilObjects(level_number);
+                    qDebug() << "pobegao je";
+                    emit escapedEvilObjects();
                 }
             }
         }

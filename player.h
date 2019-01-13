@@ -27,7 +27,7 @@ public:
  * Signale ne implementiramo posto su to virtualne funkcije koje, kada pozovemo sa emit, prosledjuju slotovima vrednosti svojih parametara.
 */
 signals:
-    void escapedEvilObjects(int level);
+    void escapedEvilObjects();
 
 private:
     int _step;
