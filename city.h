@@ -27,12 +27,8 @@ public:
 
     /*extern*/ QList<Evil*> listOfEvils;
 
-    int getLevel();
     bool setFinished(bool val);
-public slots:
-    void finished();
-signals:
-    void goToNextLevel(int level);
+
 
 protected:
     QGraphicsScene *_scene;

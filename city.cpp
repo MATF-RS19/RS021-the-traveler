@@ -65,11 +65,6 @@ QString City::getName() {
 Player *City::getPlayer(){
     return _player;
 }
-
-int City::getLevel()
-{
-    return _level_number;
-}
 /*
 bool City::ifFinished()
 {
@@ -90,7 +85,3 @@ bool City::setFinished(bool val){
     _finished = val;
 }
 
-void City::finished() {
-    qDebug() << "usao je u finished u sitiju";
-    emit goToNextLevel(this->getLevel());
-}

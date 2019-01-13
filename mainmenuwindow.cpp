@@ -164,7 +164,7 @@ void MainMenuWindow::on_play_clicked()
         ui->stackedWidget->setCurrentIndex(3);
         nameText = ui->lineEditForName->text();
         Game *game = new Game();
-        game->start(0);
+        game->start();
         music->stop();
         close();
 
