@@ -63,22 +63,8 @@ void Game::start(){
         _music->play();
 
 
-
-
-    /*
-    listOfCities[0]->show();
-    qDebug() << listOfCities[0]->_player->lifes;
-qDebug() << a;
-    if (listOfCities[0]->_player->lifes <= 0) {
-         // listOfCities[0]->invalidateScene();
-         // listOfCities[1]->show();
-         qDebug() << "sdssa";
-         listOfCities[1]->show();
-    }
-    */
-
-    listOfCities[0]->show();
-    connect(listOfCities[0]->_player, SIGNAL(escapedEvilObjects(int)), this, SLOT(goToNextLevel(int)));
+        listOfCities[0]->show();
+        connect(listOfCities[0]->_player, SIGNAL(escapedEvilObjects(int)), this, SLOT(goToNextLevel(int)));
 }
 
 void Game::loadNextLevel()

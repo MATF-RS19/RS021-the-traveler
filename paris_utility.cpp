@@ -3,6 +3,8 @@
 #include <QDebug>
 #include <QGraphicsScene>
 #include <QFile>
+#include <QMessageBox>
+#include <QApplication>
 
 ParisBuildingWindow::ParisBuildingWindow(){
     _buildingScene = new QGraphicsScene();
@@ -57,7 +59,7 @@ void ParisBuildingWindow::arrangeScene(QString textPath, QString imagePath){
     _buildingView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     _buildingView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    _btnExitBuilding->move(350, 550);
+    _btnExitBuilding->move(400, 550);
     _buildingScene->addWidget(_btnExitBuilding);
 }
 
@@ -104,43 +106,113 @@ void FinalTest::makeTest(){
     _btn3False1->move(200, 280);
     _btn3False2->move(350, 280);
 
-    addQuestionAndAnswersToScene(*question1, *_btn1Correct, *_btn1False1, *_btn1False2);
-    addQuestionAndAnswersToScene(*question2, *_btn2Correct, *_btn2False1, *_btn2False2);
-    addQuestionAndAnswersToScene(*question3, *_btn3Correct, *_btn3False1, *_btn3False2);
+    QLabel *question4 = new QLabel("4. During whose reign were grand organ placed in Notre Dame?");
+    _btn4Correct = new QPushButton("Louis XIII");
+    _btn4False1 = new QPushButton("Henry IV");
+    _btn4False2 = new QPushButton("Louis XV");
 
-    /*
-    _testWindow->_buildingScene->addWidget(question1);
-    _testWindow->_buildingScene->addWidget(_btn1Correct);
-    _testWindow->_buildingScene->addWidget(_btn1False1);
-    _testWindow->_buildingScene->addWidget(_btn1False2);
+    question4->move(30, 350);
+    _btn4Correct->move(50, 380);
+    _btn4False1->move(200, 380);
+    _btn4False2->move(350, 380);
 
-    _testWindow->_buildingScene->addWidget(question2);
-    _testWindow->_buildingScene->addWidget(_btn2Correct);
-    _testWindow->_buildingScene->addWidget(_btn2False1);
-    _testWindow->_buildingScene->addWidget(_btn2False2);
-    */
+    addQuestionAndAnswersToScene(question1, _btn1Correct, _btn1False1, _btn1False2);
+    addQuestionAndAnswersToScene(question2, _btn2Correct, _btn2False1, _btn2False2);
+    addQuestionAndAnswersToScene(question3, _btn3Correct, _btn3False1, _btn3False2);
+    addQuestionAndAnswersToScene(question4, _btn4Correct, _btn4False1, _btn4False2);
 
-    connect(_btn1Correct, SIGNAL(clicked()), this, SLOT(testSolvedCorrectly()));
+    QPushButton *btnFinishedTest = new QPushButton("Finished test!");
+    btnFinishedTest->move(400, 500);
+    _testWindow->_buildingScene->addWidget(btnFinishedTest);
+
+
+    connect(_btn1Correct, SIGNAL(clicked()), this, SLOT(answeredQuestion1True()));
+    connect(_btn2Correct, SIGNAL(clicked()), this, SLOT(answeredQuestion2True()));
+    connect(_btn3Correct, SIGNAL(clicked()), this, SLOT(answeredQuestion3True()));
+    connect(_btn4Correct, SIGNAL(clicked()), this, SLOT(answeredQuestion4True()));
+
+    connect(_btn1False1, SIGNAL(clicked()), this, SLOT(answeredQuestion1False()));
+    connect(_btn1False2, SIGNAL(clicked()), this, SLOT(answeredQuestion1False()));
+
+    connect(_btn2False1, SIGNAL(clicked()), this, SLOT(answeredQuestion2False()));
+    connect(_btn2False2, SIGNAL(clicked()), this, SLOT(answeredQuestion2False()));
+
+    connect(_btn3False1, SIGNAL(clicked()), this, SLOT(answeredQuestion3False()));
+    connect(_btn3False2, SIGNAL(clicked()), this, SLOT(answeredQuestion3False()));
+
+    connect(_btn4False1, SIGNAL(clicked()), this, SLOT(answeredQuestion4False()));
+    connect(_btn4False2, SIGNAL(clicked()), this, SLOT(answeredQuestion4False()));
+
+    connect(btnFinishedTest, SIGNAL(clicked()), this, SLOT(finishedTest()));
 
     _testWindow->_buildingView->show();
 }
 
-void FinalTest::addQuestionAndAnswersToScene(QLabel &q, QPushButton &a1, QPushButton &a2, QPushButton &a3){
-    _testWindow->_buildingScene->addWidget(&q);
-    _testWindow->_buildingScene->addWidget(&a1);
-    _testWindow->_buildingScene->addWidget(&a2);
-    _testWindow->_buildingScene->addWidget(&a3);
+void FinalTest::addQuestionAndAnswersToScene(QLabel *q, QPushButton *a1, QPushButton *a2, QPushButton *a3){
+    _testWindow->_buildingScene->addWidget(q);
+    _testWindow->_buildingScene->addWidget(a1);
+    _testWindow->_buildingScene->addWidget(a2);
+    _testWindow->_buildingScene->addWidget(a3);
+}
+
+void FinalTest::disableButtons(QPushButton *a1, QPushButton *a2, QPushButton *a3){
+    a1->setEnabled(false);
+    a2->setEnabled(false);
+    a3->setEnabled(false);
 }
 
 
+void FinalTest::answeredQuestion1True(){
+    disableButtons(_btn1Correct, _btn1False1, _btn1False2);
+    _numOfCorrectlyAnswered++;
+}
 
-void FinalTest::testSolvedCorrectly(){
-    _testCorrect = true;
-    notifyParis();
-    qDebug() << "testSolvedCorrect";
+void FinalTest::answeredQuestion2True(){
+    disableButtons(_btn2Correct, _btn2False1, _btn2False2);
+    _numOfCorrectlyAnswered++;
+}
+
+void FinalTest::answeredQuestion3True(){
+    disableButtons(_btn3Correct, _btn3False1, _btn3False2);
+    _numOfCorrectlyAnswered++;
+}
+
+void FinalTest::answeredQuestion4True(){
+    disableButtons(_btn4Correct, _btn4False1, _btn4False2);
+    _numOfCorrectlyAnswered++;
+}
+
+void FinalTest::answeredQuestion1False(){
+    disableButtons(_btn1Correct, _btn1False1, _btn1False2);
+}
+
+void FinalTest::answeredQuestion2False(){
+    disableButtons(_btn2Correct, _btn2False1, _btn2False2);
+}
+
+void FinalTest::answeredQuestion3False(){
+    disableButtons(_btn3Correct, _btn3False1, _btn3False2);
+}
+
+void FinalTest::answeredQuestion4False(){
+    disableButtons(_btn4Correct, _btn4False1, _btn4False2);
+}
+
+void FinalTest::finishedTest(){
     _testWindow->_buildingView->close();
-}
+    QMessageBox msgBox;
+    if(_numOfCorrectlyAnswered == _numOfQuestions){
+        msgBox.setInformativeText("You answered all questions correctly and finished game!");
+        QPushButton* myButton =new QPushButton("Exit game!");
+        msgBox.addButton(myButton ,QMessageBox::AcceptRole);
+        QObject::connect(myButton,&QPushButton::pressed,[](){ QApplication::exit(); });
+    }
+    else{
+        msgBox.setInformativeText("You haven't answered all questions correctly. Please try again.");
+        QPushButton* myButton =new QPushButton("Close");
+        msgBox.addButton(myButton ,QMessageBox::AcceptRole);
+        QObject::connect(myButton,&QPushButton::pressed,[&msgBox, this](){ msgBox.close(); _testWindow->_buildingView->close();});
+    }
+    msgBox.exec();
 
-bool FinalTest::notifyParis(){
-    qDebug() << "utility - notifyParis";
 }
