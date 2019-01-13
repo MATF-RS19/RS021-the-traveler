@@ -1,0 +1,7 @@
+About game:
+ The Traveler is a tile-based video game. The game simulate a
+ top down view and it's two-dimensional. The goal of this game
+ is to travel around the world traveling from one city to
+ another. Cities represent the levels of the game, so you have
+ to find something or to answer on some question or both on
+ each level to pass that level and go to the next one.
