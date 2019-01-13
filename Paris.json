@@ -23,6 +23,7 @@
     ],
 "eiffel" : {"x" : 5, "y" : 150, "w" : 250, "h" : 300, "src" : ":/images/images/paris_eiffel_tower.png", "type" : 0},
 "notreDame" : {"x" : 350, "y" : 8, "w" : 150, "h" : 200, "src" : ":/images/images/paris_notre_dame2.jpg", "type" : 0},
-"triumphalArch" : {"x" : 10, "y" : 8, "w" : 180, "h" : 180, "src" : ":/images/images/paris-triumphal-arch.svg", "type" : 0}
+"triumphalArch" : {"x" : 10, "y" : 8, "w" : 180, "h" : 180, "src" : ":/images/images/paris-triumphal-arch.svg", "type" : 0},
+"key" : {"x" : 110, "y" : 80, "w" : 10, "h" : 20, "src" : ":/images/images/paris_key.png", "type" : 0}
     }
 }

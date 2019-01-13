@@ -18,6 +18,7 @@ Game::Game(){
     _music = new QMediaPlayer();
     paris = new Paris();
     tokyo = new Tokyo();
+
     listOfCities.push_back(tokyo);
     listOfCities.push_back(paris);
 }
@@ -50,12 +51,12 @@ void Game::start(){
       //  _music->setMedia(QUrl(musicUrl));
       //  _music->play();
 
-        _playlist->addMedia(QUrl("qrc:/sounds/bckg_music.mp3"));
+      //  _playlist->addMedia(QUrl("qrc:/sounds/bckg_music.mp3"));
         _playlist->addMedia(QUrl("qrc:/sounds/song_01.mp3"));
-        _playlist->addMedia(QUrl("qrc:/sounds/song_02.mp3"));
+       // _playlist->addMedia(QUrl("qrc:/sounds/song_02.mp3"));
         _playlist->addMedia(QUrl("qrc:/sounds/song_03.mp3"));
         _playlist->addMedia(QUrl("qrc:/sounds/song_04.mp3"));
-        _playlist->addMedia(QUrl("qrc:/sounds/song_05.mp3"));
+        //_playlist->addMedia(QUrl("qrc:/sounds/song_05.mp3"));
         _playlist->shuffle();
         _playlist->setPlaybackMode(QMediaPlaylist::Loop);
 

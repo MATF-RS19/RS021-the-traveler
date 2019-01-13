@@ -41,7 +41,8 @@ SOURCES += \
     settingsdialog.cpp \
     myqfile.cpp \
     paris_utility.cpp \
-    howtoplaydialog.cpp
+    howtoplaydialog.cpp \
+    london.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -58,7 +59,8 @@ HEADERS += \
     settingsdialog.h \
     myqfile.h \
     paris_utility.h \
-    howtoplaydialog.h
+    howtoplaydialog.h \
+    london.h
 
 FORMS += \
         mainmenuwindow.ui \
