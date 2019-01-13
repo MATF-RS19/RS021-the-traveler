@@ -8,6 +8,7 @@
 #include "player.h"
 
 extern int change_now;
+extern QString nameText;
 
 class Building : public QObject, public QGraphicsItem{
         Q_OBJECT

@@ -33,16 +33,12 @@ SOURCES += \
     game.cpp \
     tokyo.cpp \
     building.cpp \
-    baseshape.cpp \
     player.cpp \
-    bullet.cpp \
     evil.cpp \
-    globalvars.cpp \
     settingsdialog.cpp \
     myqfile.cpp \
     paris_utility.cpp \
-    howtoplaydialog.cpp \
-    london.cpp
+    howtoplaydialog.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -51,16 +47,12 @@ HEADERS += \
     game.h \
     tokyo.h \
     building.h \
-    baseshape.h \
     player.h \
-    bullet.h \
     evil.h \
-    globalvars.h \
     settingsdialog.h \
     myqfile.h \
     paris_utility.h \
-    howtoplaydialog.h \
-    london.h
+    howtoplaydialog.h
 
 FORMS += \
         mainmenuwindow.ui \

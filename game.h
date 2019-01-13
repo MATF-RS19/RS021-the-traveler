@@ -5,7 +5,6 @@
 #include "city.h"
 #include "tokyo.h"
 #include "paris.h"
-#include "london.h"
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
 

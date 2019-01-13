@@ -29,8 +29,8 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     //QPixmap pix(":/images/images/main.png");
     //ui->label->setPixmap(pix);
 
-    pix.append(new QPixmap(":/images/images/main.png"));
-    pix.append(new QPixmap(":/images/images/fire.png"));
+    pix.append(new QPixmap(":/images/images/tokyo_img.png"));
+    pix.append(new QPixmap(":/images/images/paris_img.png"));
     pix.append(new QPixmap(":/images/images/left2.png"));
 
 showLabelChanges();
@@ -54,13 +54,26 @@ ui->pushButton_2->setText("");
 void SettingsDialog::showLabelChanges() {
 
     if (pic_num == 0) {
-        ui->label->setPixmap(*pix[0]);
+        // dimenzije labele
+        int w = ui->label->width();
+        int h = ui->label->height();
+        // skaliram pixmap na w x h dim.
+        ui->label->setPixmap(pix[0]->scaled(w,h,Qt::KeepAspectRatio));
     }
     else if (pic_num == 1) {
-        ui->label->setPixmap(*pix[1]);
+        // dimenzije labele
+        int w = ui->label->width();
+        int h = ui->label->height();
+        // skaliram pixmap na w x h dim.
+        ui->label->setPixmap(pix[1]->scaled(w,h,Qt::KeepAspectRatio));
+
     }
     else if (pic_num == 2) {
-        ui->label->setPixmap(*pix[2]);
+        // dimenzije labele
+        int w = ui->label->width();
+        int h = ui->label->height();
+        // skaliram pixmap na w x h dim.
+        ui->label->setPixmap(pix[2]->scaled(w,h,Qt::KeepAspectRatio));
     }
 }
 
@@ -71,21 +84,18 @@ SettingsDialog::~SettingsDialog()
 
 void SettingsDialog::on_pushButton_clicked()
 {
-        pic_num++;
-      //  ui->label->show();
-        qDebug() << pic_num;
-        showLabelChanges();
-        if (pic_num >= 2) {
-            pic_num = 2;
-        }
+    pic_num++;
+    showLabelChanges();
+    if (pic_num >= 2) {
+        pic_num = 2;
+    }
 
 }
 
 void SettingsDialog::on_pushButton_2_clicked()
 {
+
     pic_num--;
-  //  ui->label->show();
-    qDebug() << pic_num;
     showLabelChanges();
     if (pic_num <= 0) {
         pic_num = 0;

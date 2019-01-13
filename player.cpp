@@ -64,7 +64,7 @@ void Player::keyPressEvent(QKeyEvent *event){
              * prozora, onda se emituje signal za prelazak u naredni nivo. */
             //qDebug() << "***** level_number: " << level_number;
             if(level_number == 0){
-                if (pos().x() + 60 >= 900){
+                if (pos().x() + 60 >= 900 && pos().y() > 400){  // donji desni ugao
                     //qDebug() << "kraaaaj";
                     level_number = 1;
                     //qDebug() << level_number;

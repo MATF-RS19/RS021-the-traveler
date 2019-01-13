@@ -38,7 +38,6 @@ public:
     QList<QPixmap*> pix;
     static QString first_player_img;
     QString second_player_img;
-  //  QMediaPlayer * music_player = new QMediaPlayer();
 
 };
 

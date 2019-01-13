@@ -25,10 +25,7 @@ void Evil::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
     QPixmap pixmap(":/images/images/fire.png");
 
     painter->drawPixmap(0, 0, 80, 80, pixmap);
-    // slika gradjevine (trave...)
-   // QPixmap pixmap(_img);
 
-   // painter->drawPixmap(0, 0, 80, 80, pixmap);
 }
 
 void Evil::mousePressEvent(QGraphicsSceneMouseEvent *event)

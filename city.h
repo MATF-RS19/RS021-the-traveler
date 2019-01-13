@@ -7,7 +7,6 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QString>
-//#include <qtglobal.h>
 
 class City : public QGraphicsView {
     Q_OBJECT

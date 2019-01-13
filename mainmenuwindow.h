@@ -3,10 +3,11 @@
 
 #include <QMainWindow>
 #include <QMediaPlayer>
-//#include <QList>
-//#include "city.h"
 #include "settingsdialog.h"
 #include "ui_settingsdialog.h"
+
+extern QString nameText;
+
 
 namespace Ui {
 class MainMenuWindow;
@@ -28,10 +29,6 @@ private slots:
     void on_btnBack_clicked();
 
     void on_actionSettings_triggered();
-/*
-public:
-    QMediaPlayer *music;
-*/
 
     void on_actionQuit_triggered();
 

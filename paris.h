@@ -18,14 +18,10 @@ public:
     void buildSpecial(QJsonObject &json);
 
 
-public slots:
-    void isFinished();
-    //void findKey();
 
 private:
     void makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yPos);
-    Building *_key;
-    bool _foundKey = false;
+
 
 };
 

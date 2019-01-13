@@ -20,10 +20,6 @@ public:
     bool collisionWithSmth();
 private:
     bool restart_level = false;
-   // Evil * evil;
-    //void buildCity();
-    //bool finished;
-//    Player *player = new Player(250, 230);
 };
 
 #endif // TOKYO_H

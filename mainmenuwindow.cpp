@@ -162,6 +162,7 @@ void MainMenuWindow::on_play_clicked()
         int ret = msgBoxAlert.exec();
     }else {
         ui->stackedWidget->setCurrentIndex(3);
+        nameText = ui->lineEditForName->text();
         Game *game = new Game();
         game->start();
         music->stop();

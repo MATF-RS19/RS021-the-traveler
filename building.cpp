@@ -7,7 +7,6 @@
 #include <QDebug>
 #include <QMessageBox>
 #include <QApplication>
-#include <math.h>
 
 FinalTest *testParis;
 
@@ -51,6 +50,11 @@ void Building::mousePressEvent(QGraphicsSceneMouseEvent *event){
         notreDameInterior->arrangeScene(":/text/text/NotreDame.txt", ":/images/images/paris_notre_dame_interior2.jpg");
         notreDameInterior->_buildingView->show();
     }
+    else if(_name == "Triumphal arch"){
+        ParisBuildingWindow * triumphalArchInterior = new ParisBuildingWindow();
+        triumphalArchInterior->arrangeScene(":/text/text/TriumphalArch.txt", ":/images/images/paris_triumph2.jpg");
+        triumphalArchInterior->_buildingView->show();
+    }
 }
 
 void Building::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
@@ -64,24 +68,15 @@ void Building::setName(QString name){
 
 void Building::advance(int step) {
 
-   /* if(_bType != 0){*/
-/*
+    if(_bType != 0){
+
         if (_move_for < 500) {
             if (_bType == 1) {
                 _move_for += 1;
-
-  */
-
-    _move_for += 1;
-
-               // for (int ii = 0; ii < 10; ii++)   {
-                      float theta = 2.0f * 3.1415926f * float(_move_for) / float(100);//get the current angle
-                      _xPos = 200 * cos(theta);//calculate the x component
-                      _yPos = 200 * sin(theta);
-                      setPos((_xPos), (_yPos));
-         //   }
-      /*  }*/
-    /*    else {
+                setPos(_xPos, _yPos + _move_for);
+            }
+        }
+        else {
                 _move_for = 0;
         }
         // --------------------------------------------------------------------
@@ -94,28 +89,25 @@ void Building::advance(int step) {
         else {
                 _move_for_up = 0;
         }
-*/
-/*
+
+
         QList<QGraphicsItem*> colliding_items3 = this->collidingItems();
         int n = colliding_items3.size();
         for(int i = 0; i < n; ++i){
             if((typeid(*(colliding_items3[i])) == typeid(Player))){
                 //colliding_items3.clear();
-                qDebug() << "lalalalalala";
                 QMessageBox msgBox;
-                msgBox.setText("The document has been modified.");
-                msgBox.setInformativeText("The box just hit you!");
-                //msgBox.setStandardButtons(QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel);
-                //msgBox.setDefaultButton(QMessageBox::Save);
-                QPushButton* myButton =new QPushButton("Click ME!");
+                msgBox.setInformativeText(nameText + ", the box just hit you!");
+                QPushButton* myButton =new QPushButton("Exit game!");
                 msgBox.addButton(myButton ,QMessageBox::AcceptRole);
-                QObject::connect(myButton,&QPushButton::pressed,[](){ change_now = 1; qDebug("They pressed me!"); QApplication::exit(); });
-                int ret = msgBox.exec();               // QMessageBox::information(this, tr("title"), tr("message"));
-                }
-        }*/
+                QObject::connect(myButton,&QPushButton::pressed,[](){ change_now = 1; QApplication::exit(); });
+                //int ret = msgBox.exec();               // QMessageBox::information(this, tr("title"), tr("message"));
+                msgBox.exec();
+            }
+        }
         update();
     }
-//}
+}
 
 void Building::up() {
     if(_bType != 0){
