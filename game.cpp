@@ -42,7 +42,6 @@ void Game::start(int level){
      */
 
     QString fileName = ":/json/" + listOfCities[level]->getName() + ".json";
-    qDebug() << fileName;
     myQfile f(fileName);
     QJsonDocument cityD = f.makeJSONDoc();
 
@@ -51,7 +50,6 @@ void Game::start(int level){
 
     QJsonObject obj = cityD["special"].toObject();
     listOfCities[level]->buildSpecial(obj);
-
 
     listOfCities[level]->show();
     connect(listOfCities[level], SIGNAL(goToNextLevel(int)), this, SLOT(goToNextLevel(int)));

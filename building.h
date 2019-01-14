@@ -45,7 +45,7 @@ private:
     QString _name;
     int _move_for = 0;
     int _move_for_up = 0;
-    int _move_diagonal = 0;
+    int _move_diagonal = 1;
     Player *player = new Player(PLAYER_X, PLAYER_Y, PLAYER_STEP);
     QList<QGraphicsItem*> listica;
     int _bType;
