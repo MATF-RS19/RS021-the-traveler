@@ -21,7 +21,7 @@ void Tokyo::buildSpecial(QJsonObject &json){
     _scene->addItem(listOfSushi[2]);
     _scene->addItem(listOfSushi[3]);
 
-    connect(_player, SIGNAL(takeTee(QGraphicsItem *)), this, SLOT(removeSushi(QGraphicsItem *)));
+    connect(_player, SIGNAL(takeSushi(QGraphicsItem *)), this, SLOT(removeSushi(QGraphicsItem *)));
 
     QTimer *timer = new QTimer(this);
     QObject::connect(timer, SIGNAL(timeout()), _scene, SLOT(advance()));

@@ -22,11 +22,11 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->setupUi(this);
 
     setWindowTitle("Settings");
-    setBackgroundImage(":/images/images/dialog_bckg_new.jpg");
+    setBackgroundImage(":/images/images/London_background_3.jpg");
 
     pix.append(new QPixmap(":/images/images/tokyo_img.png"));
     pix.append(new QPixmap(":/images/images/paris_img.png"));
-    pix.append(new QPixmap(":/images/images/left2.png"));
+    pix.append(new QPixmap(":/images/images/london_img.png"));
 
     showLabelChanges();
 
