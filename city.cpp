@@ -83,13 +83,3 @@ void City::removeTee(QGraphicsItem *item) {
         emit goToNextLevel(_level_number);
     }
 }
-
-void City::removeSushi(QGraphicsItem *item) {
-    _scene->removeItem(item);
-    numOfSushi--;
-
-    if(numOfSushi == 0) {
-        emit goToNextLevel(_level_number);
-    }
-}
-

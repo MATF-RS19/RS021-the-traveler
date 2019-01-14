@@ -28,10 +28,11 @@ public:
 public slots:
     void finished();
     void removeTee(QGraphicsItem *item);
-    void removeSushi(QGraphicsItem *item);
+    virtual void removeSushi(QGraphicsItem *item) = 0;
 
 signals:
     void goToNextLevel(int level);
+    void freeNextLevel();
 
 protected:
     Player *_player;

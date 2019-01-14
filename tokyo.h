@@ -20,6 +20,7 @@ public:
     {}
 
     void buildSpecial(QJsonObject &json);
+    void removeSushi(QGraphicsItem *item);
 
 signals:
     void goToNextLevel(int level);

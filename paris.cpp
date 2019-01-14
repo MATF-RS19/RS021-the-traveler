@@ -53,3 +53,7 @@ void Paris::makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yP
     street->setZValue(-1);
     _scene->addItem(street);
 }
+
+void Paris::removeSushi(QGraphicsItem *item) {
+
+}

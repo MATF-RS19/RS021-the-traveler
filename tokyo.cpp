@@ -22,10 +22,19 @@ void Tokyo::buildSpecial(QJsonObject &json){
     _scene->addItem(listOfSushi[3]);
 
     connect(_player, SIGNAL(takeSushi(QGraphicsItem *)), this, SLOT(removeSushi(QGraphicsItem *)));
+    connect(this, SIGNAL(freeNextLevel()), _player, SLOT(toTheExit()) );
+    connect(_player, SIGNAL(escapedEvilObjects()), this, SLOT(finished()));
 
     QTimer *timer = new QTimer(this);
     QObject::connect(timer, SIGNAL(timeout()), _scene, SLOT(advance()));
     timer->start(50);
+}
 
-    connect(_player, SIGNAL(escapedEvilObjects()), this, SLOT(finished()));
+void Tokyo::removeSushi(QGraphicsItem *item) {
+    _scene->removeItem(item);
+    numOfSushi--;
+
+    if(numOfSushi == 0) {
+        emit freeNextLevel();
+    }
 }

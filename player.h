@@ -21,6 +21,7 @@ public:
     bool collisionWithBuildings();
     bool collisionWithEvil();
     void collisionWithTees();
+    void collisionWithSushi();
     void checkLifes();
     QGraphicsPixmapItem *getFakePlayer();
 
@@ -46,6 +47,9 @@ signals:
     void takeTee(QGraphicsItem *);
     void takeSushi(QGraphicsItem *);
 
+public slots:
+    void toTheExit();
+
 private:
     int _step;
     int _xPos, _yPos;
@@ -53,6 +57,7 @@ private:
     QPixmap _right = QPixmap(":/images/images/right2.png");
     QGraphicsPixmapItem* _fakePlayer;
     QList<QGraphicsItem*> colliding_items2;
+    bool _toTheExit = false;
 };
 
 #endif // PLAYER_H

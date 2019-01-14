@@ -11,6 +11,7 @@ public:
     London();
 
     void buildSpecial(QJsonObject &json);
+    void removeSushi(QGraphicsItem *item);
 
 private:
     QList <Tee *> _listOfTees;

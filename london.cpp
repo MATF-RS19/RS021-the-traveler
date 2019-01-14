@@ -34,10 +34,22 @@ void London::buildSpecial(QJsonObject &json)
                 londonEye["src"].toString()));
     }
 
-    connect(_player, SIGNAL(takeTee(QGraphicsItem *)), this, SLOT(removeTee(QGraphicsItem *)));
+    connect(_player, SIGNAL(takeSushi(QGraphicsItem *)), this, SLOT(removeSushi(QGraphicsItem *)));
+    connect(this, SIGNAL(freeNextLevel()), _player, SLOT(toTheExit()) );
+    connect(_player, SIGNAL(escapedEvilObjects()), this, SLOT(finished()));
 
     QTimer *timer = new QTimer(this);
     QObject::connect(timer, SIGNAL(timeout()), _scene, SLOT(advance()));
     timer->start(MSEC);
 
+}
+
+void London::removeSushi(QGraphicsItem *item) {
+    qDebug() << item->type();
+    _scene->removeItem(item);
+    numOfTees--;
+
+    if(numOfTees == 0) {
+        emit freeNextLevel();
+    }
 }
