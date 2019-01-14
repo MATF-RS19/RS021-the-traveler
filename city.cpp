@@ -75,11 +75,3 @@ void City::finished() {
     emit goToNextLevel(this->getLevel());
 }
 
-void City::removeTee(QGraphicsItem *item) {
-    _scene->removeItem(item);
-    numOfTees--;
-
-    if(numOfTees == 0) {
-        emit goToNextLevel(_level_number);
-    }
-}

@@ -21,7 +21,7 @@ public:
     {}
 
     void buildSpecial(QJsonObject &json);
-    void removeSushi(QGraphicsItem *item);
+    void removeFood(QGraphicsItem *item);
 
 private:
     void makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yPos);

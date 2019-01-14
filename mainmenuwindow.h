@@ -31,8 +31,6 @@ private slots:
 
     void on_actionQuit_triggered();
 
-    void on_play_toggled(bool checked);
-
     void on_actionHow_to_play_triggered();
 
 private:

@@ -11,10 +11,10 @@
 
 static const double PI = 3.14159265358979323846264338327950288419717;
 static const double TWO_PI = 2.0 * PI;
-static const int ANGLE_CONST = 300;
+static const int ANGLE_CONST = 600;
 
-LondonEye::LondonEye(int xPos, int yPos, int width, int height, QString img)
-    :_xPos(xPos), _yPos(yPos), _width(width), _height(height), _img(img), _radius(80), _xCenter(200), _yCenter(100)
+LondonEye::LondonEye(int xPos, int yPos, int width, int height, QString img, int move)
+    :_xPos(xPos), _yPos(yPos), _width(width), _height(height), _img(img), _radius(100), _move(move), _xCenter(200), _yCenter(100)
 {
     setPos(xPos, yPos);
 }

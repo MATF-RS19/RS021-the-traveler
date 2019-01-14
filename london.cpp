@@ -29,12 +29,11 @@ void London::buildSpecial(QJsonObject &json)
 
     QJsonArray londonEyes = json["london-eye"].toArray();
     foreach(const QJsonValue &londonEye, londonEyes) {
-        qDebug() << londonEye["x"].toInt();
         _scene->addItem(new LondonEye(londonEye["x"].toInt(), londonEye["y"].toInt(), londonEye["w"].toInt(), londonEye["h"].toInt(),
-                londonEye["src"].toString()));
+                londonEye["src"].toString(), londonEye["move"].toInt()));
     }
 
-    connect(_player, SIGNAL(takeSushi(QGraphicsItem *)), this, SLOT(removeSushi(QGraphicsItem *)));
+    connect(_player, SIGNAL(takeFood(QGraphicsItem *)), this, SLOT(removeFood(QGraphicsItem *)));
     connect(this, SIGNAL(freeNextLevel()), _player, SLOT(toTheExit()) );
     connect(_player, SIGNAL(escapedEvilObjects()), this, SLOT(finished()));
 
@@ -44,8 +43,7 @@ void London::buildSpecial(QJsonObject &json)
 
 }
 
-void London::removeSushi(QGraphicsItem *item) {
-    qDebug() << item->type();
+void London::removeFood(QGraphicsItem *item) {
     _scene->removeItem(item);
     numOfTees--;
 

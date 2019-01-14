@@ -1,5 +1,4 @@
 #include "tokyo.h"
-#include "globalvars.h"
 #include <QDebug>
 #include "player.h"
 #include <QTimer>
@@ -21,7 +20,7 @@ void Tokyo::buildSpecial(QJsonObject &json){
     _scene->addItem(listOfSushi[2]);
     _scene->addItem(listOfSushi[3]);
 
-    connect(_player, SIGNAL(takeSushi(QGraphicsItem *)), this, SLOT(removeSushi(QGraphicsItem *)));
+    connect(_player, SIGNAL(takeFood(QGraphicsItem *)), this, SLOT(removeFood(QGraphicsItem *)));
     connect(this, SIGNAL(freeNextLevel()), _player, SLOT(toTheExit()) );
     connect(_player, SIGNAL(escapedEvilObjects()), this, SLOT(finished()));
 
@@ -30,7 +29,7 @@ void Tokyo::buildSpecial(QJsonObject &json){
     timer->start(50);
 }
 
-void Tokyo::removeSushi(QGraphicsItem *item) {
+void Tokyo::removeFood(QGraphicsItem *item) {
     _scene->removeItem(item);
     numOfSushi--;
 

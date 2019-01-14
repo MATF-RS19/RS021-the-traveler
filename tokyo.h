@@ -20,10 +20,13 @@ public:
     {}
 
     void buildSpecial(QJsonObject &json);
-    void removeSushi(QGraphicsItem *item);
+    void removeFood(QGraphicsItem *item);
 
 signals:
     void goToNextLevel(int level);
+
+private:
+    int numOfSushi = 4;
 };
 
 #endif // TOKYO_H

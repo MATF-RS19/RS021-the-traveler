@@ -11,10 +11,10 @@ public:
     London();
 
     void buildSpecial(QJsonObject &json);
-    void removeSushi(QGraphicsItem *item);
+    void removeFood(QGraphicsItem *item);
 
 private:
-    QList <Tee *> _listOfTees;
+    int numOfTees = 10;
 };
 
 #endif // LONDON_H

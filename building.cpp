@@ -92,6 +92,24 @@ void Building::advance(int step) {
              _yPos = int(Y_CENTER_OF_ROTATION + RADIUS * sin(theta));
              setPos((_xPos), (_yPos));
         }
+        if(_bType == 4) {
+           if(_xPos < 900) {
+               if(_yPos < 599) {
+                   setPos(_xPos + 1, _yPos + 1);
+               }
+               else {
+                   setPos(_xPos + 1, _yPos -1);
+               }
+           }
+           else {
+               if(_yPos < 599) {
+                   setPos(_xPos - 1, _yPos + 1);
+               }
+               else {
+                   setPos(_xPos - 1, _yPos -1);
+               }
+           }
+        }
 
         QList<QGraphicsItem*> colliding_items3 = this->collidingItems();
         int n = colliding_items3.size();

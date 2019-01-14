@@ -27,8 +27,7 @@ public:
 
 public slots:
     void finished();
-    void removeTee(QGraphicsItem *item);
-    virtual void removeSushi(QGraphicsItem *item) = 0;
+    virtual void removeFood(QGraphicsItem *item) = 0;
 
 signals:
     void goToNextLevel(int level);
@@ -41,8 +40,6 @@ protected:
     QList<Building*> listOfBuildings;
     QString _name;
     QList<Sushi*> listOfSushi;
-    int numOfTees = 2;
-    int numOfSushi = 4;
 
     void setBackgraundImage(QString path);
     void setCityDimensions(int x, int y, int w, int h);

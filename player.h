@@ -19,10 +19,7 @@ public:
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
     bool collisionWithBuildings();
-    bool collisionWithEvil();
-    void collisionWithTees();
-    void collisionWithSushi();
-    void checkLifes();
+    void checkCollisionWithFood();
     QGraphicsPixmapItem *getFakePlayer();
 
     int getX();
@@ -44,8 +41,7 @@ public:
 
 signals:
     void escapedEvilObjects();
-    void takeTee(QGraphicsItem *);
-    void takeSushi(QGraphicsItem *);
+    void takeFood(QGraphicsItem *);
 
 public slots:
     void toTheExit();

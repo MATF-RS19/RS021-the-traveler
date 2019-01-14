@@ -6,7 +6,7 @@
 class LondonEye: public QGraphicsItem
 {
 public:
-    LondonEye(int xPos, int yPos, int width, int height, QString img);
+    LondonEye(int xPos, int yPos, int width, int height, QString img, int radius);
 
     QRectF boundingRect() const override;
 
