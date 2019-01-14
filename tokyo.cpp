@@ -8,29 +8,24 @@
 void Tokyo::buildSpecial(QJsonObject &json){
 
     /*
-     * postavlja item-e na scenu
+     * Postavlja item-e na scenu
      * (koje redom uzima iz liste)
      */
 
-    for (int i=0; i < listOfBuildings.size(); i++)
-    {
-        qDebug() << i;
-    }
+    listOfSushi.append(new Sushi(730, 5));
+    listOfSushi.append(new Sushi(830, 190));
+    listOfSushi.append(new Sushi(750, 350));
+    listOfSushi.append(new Sushi(750, 470));
+    _scene->addItem(listOfSushi[0]);
+    _scene->addItem(listOfSushi[1]);
+    _scene->addItem(listOfSushi[2]);
+    _scene->addItem(listOfSushi[3]);
 
-    listOfEvils.append(new Evil(730, 5));
-    listOfEvils.append(new Evil(830, 190));
-    listOfEvils.append(new Evil(750, 350));
-    listOfEvils.append(new Evil(750, 470));
-    _scene->addItem(listOfEvils[0]);
-    _scene->addItem(listOfEvils[1]);
-    _scene->addItem(listOfEvils[2]);
-    _scene->addItem(listOfEvils[3]);
+    connect(_player, SIGNAL(takeTee(QGraphicsItem *)), this, SLOT(removeSushi(QGraphicsItem *)));
 
     QTimer *timer = new QTimer(this);
     QObject::connect(timer, SIGNAL(timeout()), _scene, SLOT(advance()));
     timer->start(50);
 
-
     connect(_player, SIGNAL(escapedEvilObjects()), this, SLOT(finished()));
-
 }

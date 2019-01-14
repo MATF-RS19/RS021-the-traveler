@@ -11,6 +11,7 @@
 
 static const double PI = 3.14159265358979323846264338327950288419717;
 static const double TWO_PI = 2.0 * PI;
+static const int ANGLE_CONST = 300;
 
 LondonEye::LondonEye(int xPos, int yPos, int width, int height, QString img)
     :_xPos(xPos), _yPos(yPos), _width(width), _height(height), _img(img), _radius(80), _xCenter(200), _yCenter(100)
@@ -33,10 +34,10 @@ void LondonEye::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidg
 
 void LondonEye::advance(int step) {
     _move += 1;
-    _angle = TWO_PI * double(_move) / 300.0;
+    _angle = TWO_PI * _move / ANGLE_CONST;
 
-    _xPos = _xCenter + _radius * cos(_angle);
-    _yPos = _yCenter + _radius * sin(_angle);
+    _xPos = int(_xCenter + _radius * cos(_angle));
+    _yPos = int(_yCenter + _radius * sin(_angle));
 
     setPos(_xPos, _yPos);
 

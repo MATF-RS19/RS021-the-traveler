@@ -3,7 +3,6 @@
 #include <QDebug>
 #include "paris.h"
 #include "paris_utility.h"
-
 #include <QJsonObject>
 #include <QJsonArray>
 
@@ -44,8 +43,6 @@ void Paris::buildSpecial(QJsonObject &json) {
         _scene->addItem(triumphalArch);
 
 }
-
-
 
 void Paris::makeStreet(QString imgPath, int xScale, int yScale, int xPos, int yPos){
     QGraphicsPixmapItem *street = new QGraphicsPixmapItem();

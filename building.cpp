@@ -9,8 +9,15 @@
 #include <QApplication>
 #include <math.h>
 #include <QDebug>
-FinalTest *testParis;
 
+FinalTest *testParis;
+static const double PI = 3.14159265358979323846264338327950288419717;
+static const double TWO_PI = 2.0 * PI;
+static const int X_CENTER_OF_ROTATION = 450;
+static const int Y_CENTER_OF_ROTATION = 80;
+static const int RADIUS = 70;
+static const int MAX_MOVE_FOR = 500;
+static const int ANGLE_CONST = 100;
 
 Building::Building(int xPos, int yPos, int width, int height, QString img, int type)
     : _img(img), _width(width), _height(height), _xPos(xPos), _yPos(yPos), _bType(type)
@@ -25,12 +32,7 @@ QRectF Building::boundingRect() const
 
 void Building::paint(QPainter *painter, const QStyleOptionGraphicsItem *, QWidget *)
 {
-    // crtanje pravougaonika
-    //painter->drawRect(_xPos,_yPos,_width,_height);
-
-    // slika gradjevine (trave...)
     QPixmap pixmap(_img);
-
     painter->drawPixmap(_xPos,_yPos,_width,_height, pixmap);
 }
 
@@ -39,7 +41,6 @@ void Building::mousePressEvent(QGraphicsSceneMouseEvent *event){
     if(_name == "Eiffel"){
         testParis = new FinalTest();
         testParis->makeTest();
-
     }
     else if(_name == "Notre Dame"){
         ParisBuildingWindow * notreDameInterior = new ParisBuildingWindow();
@@ -61,12 +62,10 @@ void Building::setName(QString name){
     _name = name;
 }
 
-
 void Building::advance(int step) {
 
     if(_bType != 0){
-
-        if (_move_for < 500) {
+        if (_move_for < MAX_MOVE_FOR) {
             if (_bType == 1) {
                 _move_for += 1;
                 setPos(_xPos, _yPos + _move_for);
@@ -75,8 +74,8 @@ void Building::advance(int step) {
         else {
                 _move_for = 0;
         }
-        // --------------------------------------------------------------------
-        if (_move_for_up < 500) {
+
+        if (_move_for_up < MAX_MOVE_FOR) {
             if (_bType == 2) {
                 _move_for_up += 1;
                 setPos(_xPos, _yPos - _move_for_up);
@@ -88,9 +87,9 @@ void Building::advance(int step) {
 
         if(_bType == 3){
              _move_by += 1;
-             float theta = 2.0f * 3.1415926f * float(_move_by) / float(100);// racuna trenutni ugao
-             _xPos = 450 + 70 * cos(theta);
-             _yPos = 80 + 70 * sin(theta);
+             double theta = TWO_PI * _move_by / ANGLE_CONST;// racuna trenutni ugao
+             _xPos = int(X_CENTER_OF_ROTATION + RADIUS * cos(theta));
+             _yPos = int(Y_CENTER_OF_ROTATION + RADIUS * sin(theta));
              setPos((_xPos), (_yPos));
         }
 
@@ -103,7 +102,7 @@ void Building::advance(int step) {
                 msgBox.setInformativeText(nameText + ", the box just hit you!");
                 QPushButton* myButton =new QPushButton("Exit game!");
                 msgBox.addButton(myButton ,QMessageBox::AcceptRole);
-                QObject::connect(myButton,&QPushButton::pressed,[](){ change_now = 1; QApplication::exit(); });
+                QObject::connect(myButton,&QPushButton::pressed,[](){ QApplication::exit(); });
                 msgBox.exec();
             }
         }

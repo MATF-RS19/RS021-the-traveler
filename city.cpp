@@ -8,7 +8,7 @@
 #include <QJsonObject>
 
 City::City(QString name, int playerPosX, int playerPosY, int playerStep, int level_number)
-    :_name (name), _level_number(level_number) {
+    :_level_number(level_number), _name(name) {
     _scene = new QGraphicsScene();
     setScene(_scene);
 
@@ -32,17 +32,18 @@ void City::setBackgraundImage(QString path){
     setBackgroundBrush(*brush);
 }
 
+/*
+ * Postavljaju se dimenzije i pozicija grada,
+ * tj. scene u kojoj ce biti prikazan grad.
+ *
+ * Dimenzije pogleda se postavljaju na iste vrednosti,
+ * kako bismo imali pogled na celu scenu.
+ */
 
 void City::setCityDimensions(int x, int y, int w, int h){
-    /*
-     * Postavljaju se dimenzije i pozicija grada, tj. scene u kojoj ce biti prikazan grad.
-     * I dimenzije pogleda se postavljaju na iste vrednosti, kako bismo imali pogled na celu scenu.
-     */
     _scene->setSceneRect(x, y, w, h);
     setFixedSize(w, h);
 }
-
-
 
 QString City::getName() {
     return _name;
@@ -67,7 +68,7 @@ void City::buildBasic(const QJsonObject &jsonObj, const QString &img, const QJso
 }
 
 /*
- * prelazak na sledeci nivo
+ * Prelazak na sledeci nivo.
  */
 
 void City::finished() {
@@ -78,6 +79,17 @@ void City::removeTee(QGraphicsItem *item) {
     _scene->removeItem(item);
     numOfTees--;
 
-    if(numOfTees == 0)
+    if(numOfTees == 0) {
         emit goToNextLevel(_level_number);
+    }
 }
+
+void City::removeSushi(QGraphicsItem *item) {
+    _scene->removeItem(item);
+    numOfSushi--;
+
+    if(numOfSushi == 0) {
+        emit goToNextLevel(_level_number);
+    }
+}
+

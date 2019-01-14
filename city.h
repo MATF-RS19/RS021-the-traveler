@@ -2,7 +2,7 @@
 #define CITY_H
 
 #include "building.h"
-#include "evil.h"
+#include "sushi.h"
 #include "player.h"
 #include <QGraphicsView>
 #include <QGraphicsScene>
@@ -10,9 +10,7 @@
 
 /*
  * Ovo je apstraktna klasa koja sluzi za pravljenje gradova/ nivoa
- *
  */
-
 
 class City : public QGraphicsView {
     Q_OBJECT
@@ -30,6 +28,7 @@ public:
 public slots:
     void finished();
     void removeTee(QGraphicsItem *item);
+    void removeSushi(QGraphicsItem *item);
 
 signals:
     void goToNextLevel(int level);
@@ -40,8 +39,9 @@ protected:
     QGraphicsScene *_scene;
     QList<Building*> listOfBuildings;
     QString _name;
-    QList<Evil*> listOfEvils;
+    QList<Sushi*> listOfSushi;
     int numOfTees = 2;
+    int numOfSushi = 4;
 
     void setBackgraundImage(QString path);
     void setCityDimensions(int x, int y, int w, int h);

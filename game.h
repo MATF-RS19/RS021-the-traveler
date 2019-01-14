@@ -8,9 +8,6 @@
 #include <QMediaPlayer>
 #include <QMediaPlaylist>
 
-extern int change_now;
-
-
 /*
  * Ova klasa sadrzi listu gradova koje igrac treba da obidje
  * i metod kojim se pokrece igra u tim gradovima.
@@ -35,7 +32,6 @@ private:
     QMediaPlaylist *_playlist = new QMediaPlaylist();
     QList<City*> listOfCities;
 };
-
 
 
 #endif // GAME_H

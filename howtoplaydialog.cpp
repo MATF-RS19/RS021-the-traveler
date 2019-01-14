@@ -14,10 +14,9 @@ HowToPlayDialog::HowToPlayDialog(QWidget *parent) :
     this->setFixedSize(600, 400);
 
     setWindowTitle("Settings");
-    setBackgroundImage(":/images/images/dialog_bckg.jpg");
+    setBackgroundImage(":/images/images/how_to_play_bckg.jpg");
 
     QString text;
-    // QTextBrowser *textBrowser = new QTextBrowser();
     int number_of_lines = 0;
 
     QFile inputFile(":/text/text/AboutGame.txt");
@@ -32,18 +31,18 @@ HowToPlayDialog::HowToPlayDialog(QWidget *parent) :
        }
        ui->textBrowser->setText(text);
 
-       /*
-        * Prilagodjavamo velicinu textBrowsera njegovom sadrzaju
-        */
+    /*
+    * Prilagodjavamo velicinu textBrowsera njegovom sadrzaju
+    */
 
-       QFontMetrics font_metrics(ui->textBrowser->font());
-       int font_height = font_metrics.height();
-       int height = font_height * number_of_lines;
+    QFontMetrics font_metrics(ui->textBrowser->font());
+    int font_height = font_metrics.height();
+    int height = font_height * number_of_lines;
 
-        ui->textBrowser->setMinimumHeight(height);
-        ui->textBrowser->setMaximumHeight(height);
+    ui->textBrowser->setMinimumHeight(height);
+    ui->textBrowser->setMaximumHeight(height);
 
-        inputFile.close();
+    inputFile.close();
 }
     else qDebug() << "Neuspelo otvaranje datoteke";
 }

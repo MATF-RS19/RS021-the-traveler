@@ -34,14 +34,14 @@ SOURCES += \
     tokyo.cpp \
     building.cpp \
     player.cpp \
-    evil.cpp \
     settingsdialog.cpp \
     myqfile.cpp \
     paris_utility.cpp \
     howtoplaydialog.cpp \
     london.cpp \
     tee.cpp \
-    londoneye.cpp
+    londoneye.cpp \
+    sushi.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -51,14 +51,14 @@ HEADERS += \
     tokyo.h \
     building.h \
     player.h \
-    evil.h \
     settingsdialog.h \
     myqfile.h \
     paris_utility.h \
     howtoplaydialog.h \
     london.h \
     tee.h \
-    londoneye.h
+    londoneye.h \
+    sushi.h
 
 FORMS += \
         mainmenuwindow.ui \

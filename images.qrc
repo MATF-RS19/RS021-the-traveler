@@ -49,5 +49,10 @@
         <file>images/london_tea.png</file>
         <file>images/london_people_2.png</file>
         <file>images/London_background.jpg</file>
+        <file>images/how_to_play_bckg.jpg</file>
+        <file>images/kontrole2.png</file>
+        <file>images/settings_bckg_travel.jpg</file>
+        <file>images/settings_bckg_travel2.jpg</file>
+        <file>images/dialog_bckg_new.jpg</file>
     </qresource>
 </RCC>

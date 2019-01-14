@@ -8,13 +8,15 @@
 #include "player.h"
 
 /*
- * Ova klasa sluzi za pravljenje zgrada
+ * Klasa Building sluzi za pravljenje zgrada
  * koje se koriste u svakom nivou
- *
  */
 
-extern int change_now;
 extern QString nameText;
+
+static const int PLAYER_X = 250;
+static const int PLAYER_Y = 230;
+static const int PLAYER_STEP = 20;
 
 class Building : public QObject, public QGraphicsItem{
         Q_OBJECT
@@ -43,7 +45,7 @@ private:
     QString _name;
     int _move_for = 0;
     int _move_for_up = 0;
-    Player *player = new Player(250, 230, 20);
+    Player *player = new Player(PLAYER_X, PLAYER_Y, PLAYER_STEP);
     QList<QGraphicsItem*> listica;
     int _bType;
     int _move_by = 0;

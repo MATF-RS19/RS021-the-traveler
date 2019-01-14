@@ -12,7 +12,6 @@
 #include <QApplication>
 #include <QGraphicsItem>
 
-extern int change_now;
 Game::Game(){
     _music = new QMediaPlayer();
 
@@ -39,8 +38,8 @@ Game::Game(){
 void Game::start(int level){
 
     /*
-        Ovim metodom se prave i prikazuju gradovi iz liste.
-    */
+     *   Ovim metodom se prave i prikazuju gradovi iz liste.
+     */
 
     QString fileName = ":/json/" + listOfCities[level]->getName() + ".json";
     qDebug() << fileName;
@@ -65,6 +64,3 @@ void Game::goToNextLevel(int level){
     start(level);
     listOfCities[level]->show();
 }
-
-
-

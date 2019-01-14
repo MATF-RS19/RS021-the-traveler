@@ -1,6 +1,5 @@
 #include "settingsdialog.h"
 #include "ui_settingsdialog.h"
-
 #include <QDesktopWidget>
 #include <QPalette>
 #include <QPainter>
@@ -11,7 +10,6 @@
 #include <QPixmap>
 #include <QDebug>
 #include <QList>
-
 #include "mainmenuwindow.h"
 #include "ui_mainmenuwindow.h"
 
@@ -24,28 +22,25 @@ SettingsDialog::SettingsDialog(QWidget *parent) :
     ui->setupUi(this);
 
     setWindowTitle("Settings");
-    setBackgroundImage(":/images/images/dialog_bckg.jpg");
+    setBackgroundImage(":/images/images/dialog_bckg_new.jpg");
 
     pix.append(new QPixmap(":/images/images/tokyo_img.png"));
     pix.append(new QPixmap(":/images/images/paris_img.png"));
     pix.append(new QPixmap(":/images/images/left2.png"));
 
-showLabelChanges();
+    showLabelChanges();
 
-//ui->radioButton->setIcon();
-ui->radioButton->setText("off");
-ui->radioButton->setStyleSheet("background-color: #C2D7F1");
-ui->radioButton_2->setText("on");
-ui->radioButton_2 ->setStyleSheet("background-color: #C2D7F1");
+    ui->radioButton->setText("off");
+    ui->radioButton->setStyleSheet("background-color: #C2D7F1");
+    ui->radioButton_2->setText("on");
+    ui->radioButton_2 ->setStyleSheet("background-color: #C2D7F1");
 
-ui->pushButton->setStyleSheet("border-image:url(:/buttons/buttons/next.png);");
-ui->pushButton->setFixedSize(30,30);
-ui->pushButton->setText("");
-ui->pushButton_2->setStyleSheet("border-image:url(:/buttons/buttons/back.png);");
-ui->pushButton_2->setFixedSize(30,30);
-ui->pushButton_2->setText("");
-
-
+    ui->pushButton->setStyleSheet("border-image:url(:/buttons/buttons/next.png);");
+    ui->pushButton->setFixedSize(30,30);
+    ui->pushButton->setText("");
+    ui->pushButton_2->setStyleSheet("border-image:url(:/buttons/buttons/back.png);");
+    ui->pushButton_2->setFixedSize(30,30);
+    ui->pushButton_2->setText("");
 }
 
 void SettingsDialog::showLabelChanges() {
@@ -86,12 +81,10 @@ void SettingsDialog::on_pushButton_clicked()
     if (pic_num >= 2) {
         pic_num = 2;
     }
-
 }
 
 void SettingsDialog::on_pushButton_2_clicked()
 {
-
     pic_num--;
     showLabelChanges();
     if (pic_num <= 0) {
@@ -102,7 +95,6 @@ void SettingsDialog::on_pushButton_2_clicked()
 void SettingsDialog::on_radioButton_clicked()
 {
     music->stop();
-
 }
 
 void SettingsDialog::on_radioButton_2_clicked()

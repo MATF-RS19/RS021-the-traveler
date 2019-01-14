@@ -8,7 +8,6 @@
 
 extern QString nameText;
 
-
 namespace Ui {
 class MainMenuWindow;
 }

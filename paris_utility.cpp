@@ -214,5 +214,4 @@ void FinalTest::finishedTest(){
         QObject::connect(myButton,&QPushButton::pressed,[&msgBox, this](){ msgBox.close(); _testWindow->_buildingView->close();});
     }
     msgBox.exec();
-
 }

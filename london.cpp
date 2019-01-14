@@ -7,10 +7,15 @@
 #include <QTimer>
 #include <QDebug>
 
-London::London()
-    : City("London", 0, 0, 20, 1)
-{
+static const int MSEC = 50;
+static const int PLAYER_POS_X = 0;
+static const int PLAYER_POS_Y = 0;
+static const int STEP = 20;
+static const int LEVEL_NUMBER = 1;
 
+London::London()
+    : City("London", PLAYER_POS_X, PLAYER_POS_Y, STEP, LEVEL_NUMBER)
+{
 }
 
 void London::buildSpecial(QJsonObject &json)
@@ -33,8 +38,6 @@ void London::buildSpecial(QJsonObject &json)
 
     QTimer *timer = new QTimer(this);
     QObject::connect(timer, SIGNAL(timeout()), _scene, SLOT(advance()));
-    timer->start(50);
+    timer->start(MSEC);
 
 }
-
-

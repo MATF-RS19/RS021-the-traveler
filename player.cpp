@@ -2,7 +2,7 @@
 #include "building.h"
 #include <QGraphicsScene>
 #include <QDebug>
-#include "evil.h"
+#include "sushi.h"
 #include "globalvars.h"
 #include "city.h"
 #include "game.h"
@@ -11,12 +11,6 @@
 #include "bullet.h"
 #include "tee.h"
 
-    /*
-     * DIMENZIJE PLAYERA:
-     * 110 x 60
-     *
-     */
-
 Player::Player(int x, int y, int step){
     _xPos = x;
     _yPos = y;
@@ -24,7 +18,11 @@ Player::Player(int x, int y, int step){
     this->setPos(_xPos,_yPos);
     this->setPixmap(_left);
 
-    /* Da bi objekat mogao da odreaguje na neki event mora da se fokusira. Ovo nam je potrebno za kretanje. */
+    /*
+     * Da bi objekat mogao da odreaguje na neki event mora da se fokusira.
+     * Ovo nam je potrebno za kretanje.
+     */
+
     this->setFlag(QGraphicsItem::ItemIsFocusable);
     this->setFocus();
 
@@ -32,7 +30,6 @@ Player::Player(int x, int y, int step){
     _fakePlayer->setPos(_xPos,_yPos);
     _fakePlayer->setPixmap(QPixmap(":/images/images/fake-player.png"));
     _fakePlayer->setScale(0.6);
-
 }
 
 Player::~Player(){
@@ -102,10 +99,8 @@ void Player::keyReleaseEvent(QKeyEvent *event){
        (event->key() == Qt::Key_Up) ||
        (event->key() == Qt::Key_Down)){
 
-            _xPos = x();
-            _yPos = y();
-            //qDebug() << "x: " << _xPos;
-            //qDebug() << "y: " << _yPos;
+        _xPos = x();
+        _yPos = y();
     }
 }
 
@@ -147,8 +142,8 @@ bool Player::collisionWithEvil(){
     colliding_items2 = _fakePlayer->collidingItems();
     int n = colliding_items2.size();
     for(int i = 0; i < n; ++i){
-        if((typeid(*(colliding_items2[i])) == typeid(Evil))){
-            return true;
+        if((typeid(*(colliding_items2[i])) == typeid(Sushi))){
+            emit takeSushi(colliding_items2[i]);
         }
     }
     return false;
@@ -158,19 +153,8 @@ void Player::checkLifes() {
     if (collisionWithEvil() == true and lifes > 0) {
         colliding_items2[0]->setPos(-200, -200);
         food ++;
-        //this->setOpacity(this->opacity() - 0.2);
-        //lifes = lifes - 1;
 
-// ne dirajte ovo! :D
-        //   evil_flag = 1;
        //     scene()->removeItem(colliding_items2[0]);
-        //    delete colliding_items2[0];
-
+       //    delete colliding_items2[0];
     }
-
-
-
 }
-
-
-

@@ -8,7 +8,7 @@
 /*
  * Ova klasa predstavlja plejera,
  * u njoj se obradjuje kolizija plejera sa obektima
- * i kretanje plejera
+ * i kretanje plejera.
  */
 
 class Player : public QObject, public QGraphicsPixmapItem {
@@ -30,13 +30,21 @@ public:
     int lifes = 3;
     int food = 0;
 
-/* escapedEvilObjects je signal koji se emituje kada plejer u prvom nivou uspe da pobegne objektima koji se pomeraju, izbegne Evel objekte i stigne do desne strane ekrana.
+/*
+ * Signal escapedEvilObjects je signal koji se emituje kada plejer u prvom nivou
+ * uspe da pobegne objektima koji se pomeraju, izbegne Evel objekte i
+ * stigne do desne strane ekrana.
+ *
  * Game objekat treba da prihvati ovaj signal i da predje na naredni nivo.
- * Signale ne implementiramo posto su to virtualne funkcije koje, kada pozovemo sa emit, prosledjuju slotovima vrednosti svojih parametara.
-*/
+ *
+ * Signale ne implementiramo posto su to virtualne funkcije koje,
+ * kada pozovemo sa emit, prosledjuju slotovima vrednosti svojih parametara.
+ */
+
 signals:
     void escapedEvilObjects();
     void takeTee(QGraphicsItem *);
+    void takeSushi(QGraphicsItem *);
 
 private:
     int _step;
