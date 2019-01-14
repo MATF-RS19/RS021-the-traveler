@@ -47,5 +47,7 @@
         <file>images/tokyo_img.png</file>
         <file>images/London_background_6.jpg</file>
         <file>images/london_tea.png</file>
+        <file>images/london_people_2.png</file>
+        <file>images/London_background.jpg</file>
     </qresource>
 </RCC>

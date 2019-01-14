@@ -87,12 +87,11 @@ void Building::advance(int step) {
         }
 
         if(_bType == 3){
-            _move_by += 1;
+             _move_by += 1;
              float theta = 2.0f * 3.1415926f * float(_move_by) / float(100);// racuna trenutni ugao
              _xPos = 450 + 70 * cos(theta);
              _yPos = 80 + 70 * sin(theta);
              setPos((_xPos), (_yPos));
-
         }
 
         QList<QGraphicsItem*> colliding_items3 = this->collidingItems();

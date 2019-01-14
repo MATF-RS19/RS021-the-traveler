@@ -59,11 +59,7 @@ void Game::start(int level){
 }
 
 void Game::goToNextLevel(int level){
-    //for(QGraphicsItem *item: listOfCities[level]->items()) {
-        //delete item;
-        listOfCities[level]->close();
-    //}
-
+    listOfCities[level]->close();
 
     level += 1;
     start(level);

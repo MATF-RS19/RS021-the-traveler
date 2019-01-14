@@ -40,7 +40,8 @@ SOURCES += \
     paris_utility.cpp \
     howtoplaydialog.cpp \
     london.cpp \
-    tee.cpp
+    tee.cpp \
+    londoneye.cpp
 
 HEADERS += \
         mainmenuwindow.h \
@@ -56,7 +57,8 @@ HEADERS += \
     paris_utility.h \
     howtoplaydialog.h \
     london.h \
-    tee.h
+    tee.h \
+    londoneye.h
 
 FORMS += \
         mainmenuwindow.ui \
